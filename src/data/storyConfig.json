@@ -1,0 +1,448 @@
+[
+    {
+        "sceneId": 1,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s1-bg",
+                "type": "background_element",
+                "assetKey": "houseFamily",
+                "timeline": {
+                    "enter": [
+                        0,
+                        0
+                    ],
+                    "stay": [
+                        0,
+                        150
+                    ],
+                    "exit": [
+                        150,
+                        200
+                    ]
+                },
+                "enterFrom": "none",
+                "exitTo": "fade"
+            },
+            {
+                "id": "s1-title",
+                "type": "title",
+                "text": "HOME",
+                "layout": {
+                    "top": "10%",
+                    "left": "10%"
+                },
+                "timeline": {
+                    "enter": [
+                        20,
+                        40
+                    ],
+                    "stay": [
+                        40,
+                        150
+                    ],
+                    "exit": [
+                        150,
+                        200
+                    ]
+                },
+                "enterFrom": "fade",
+                "exitTo": "fade"
+            }
+        ]
+    },
+    {
+        "sceneId": 2,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s2-villain",
+                "type": "character",
+                "assetKey": "villain",
+                "widthClass": "w-90vw",
+                "layout": {
+                    "bottom": "0%",
+                    "top": "0%",
+                    "right": "0%"
+                },
+                "timeline": {
+                    "enter": [
+                        0,
+                        20
+                    ],
+                    "stay": [
+                        20,
+                        180
+                    ],
+                    "exit": [
+                        180,
+                        200
+                    ]
+                },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            },
+            {
+                "id": "s2-title",
+                "type": "title",
+                "text": "Mogambo",
+                "layout": { "top": "10%", "left": "10%" },
+                "timeline": { "enter": [20, 30], "stay": [30, 190], "exit": [1900, 200] },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            },
+            {
+                "id": "s2-dialogue-1",
+                "type": "title",
+                "speaker": "Mugambo",
+                "text": "I am Mugambo. And this world will be mine.",
+                "layout": {
+                    "top": "25%",
+                    "left": "5%"
+                },
+                "timeline": {
+                    "enter": [
+                        40,
+                        50
+                    ],
+                    "stay": [
+                        50,
+                        110
+                    ],
+                    "exit": [
+                        110,
+                        120
+                    ]
+                },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s2-dialogue-2",
+                "type": "title",
+                "speaker": "Mugambo",
+                "text": "No one can stop me!",
+                "layout": {
+                    "top": "25%",
+                    "left": "10%"
+                },
+                "timeline": {
+                    "enter": [
+                        120,
+                        130
+                    ],
+                    "stay": [
+                        130,
+                        180
+                    ],
+                    "exit": [
+                        180,
+                        200
+                    ]
+                },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            }
+        ]
+    }
+,
+    {
+        "sceneId": 3,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s3-bg", 
+                "type": "background_element", 
+                "assetKey": "house", 
+                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 4,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s4-bg", 
+                "type": "background_element", 
+                "assetKey": "villainAtGate",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s3-dialogue",
+                "type": "dialogue",
+                "text": "You will have to die kid!!",
+                "layout": { "top": "5%", "left": "55%" },
+                "timeline": { "enter": [40, 60], "stay": [60, 160], "exit": [160, 180] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "left"
+            }
+        ]
+    },
+    {
+        "sceneId": 5,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s5-bg", 
+                "type": "background_element", 
+                "assetKey": "houseAttack",
+                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s3-dialogue",
+                "type": "dialogue",
+                "text": "Someone is at the gate!",
+                "layout": { "top": "10%", "left": "15%" },
+                "timeline": { "enter": [40, 60], "stay": [60, 160], "exit": [160, 180] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "right"
+            }
+        ]
+    },
+    {
+        "sceneId": 6,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s6-bg", 
+                "type": "background_element", 
+                "assetKey": "villainAttack",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s5-dialogue",
+                "type": "dialogue",
+                "speaker": "Mugambo",
+                "text": "your magic is no match for me!",
+                "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "right"
+            }
+        ]
+    },
+    {
+        "sceneId": 7,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s7-bg", 
+                "type": "background_element", 
+                "assetKey": "villainFather",
+                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            { 
+                "id": "s7-dialogue", 
+                "type": "dialogue", 
+                "speaker": "Father", 
+                "text": "I won't let you hurt my family!",
+                "layout": { "top": "1%", "left": "22%" },
+                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            }
+        ]
+    },
+    {
+        "sceneId": 8,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s8-bg", 
+                "type": "background_element", 
+                "assetKey": "villainBlast",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s8-title",
+                "type": "title",
+                "text": "BOOM",
+                "layout": {
+                    "top": "10%",
+                    "left": "10%"
+                },
+
+                "enterFrom": "fade",
+                "exitTo": "fade"
+            }
+        ]
+    },
+    {
+        "sceneId": 9,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s9-bg", 
+                "type": "background_element", 
+                "assetKey": "fatherDead",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 10,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s10-bg", 
+                "type": "background_element", 
+                "assetKey": "motherCry",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s10-dialogue",
+                "type": "dialogue",
+                "speaker": "Father",
+                "text": "I Will save you my child!",
+                "layout": { "top": "1%", "left": "50%" },
+                "timeline": { "enter": [20, 30], "stay": [20, 80], "exit": [80, 100] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s10-dialogue",
+                "type": "dialogue",
+                "speaker": "Father",
+                "text": "Zzzzz...",
+                "layout": { "top": "40%", "left": "70%" },
+                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            }
+        ]
+    },
+    {
+        "sceneId": 11,
+        "duration": 250,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s11-bg1", 
+                "type": "background_element", 
+                "assetKey": "villainDie",
+                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 140] }, 
+                "enterFrom": "none",
+                "exitTo": "fade"
+            },
+            {
+                "id": "s11-dialogue",
+                "type": "title",
+                "speaker": "Father",
+                "text": "Wahtttt...aaah",
+                "layout": { "top": "40%", "left": "70%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 90], "exit": [90, 100] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            },
+            { 
+                "id": "s11-bg2", 
+                "type": "background_element", 
+                "assetKey": "villainDie2",
+                "timeline": { "enter": [120, 140], "stay": [140, 250], "exit": [250, 250] }, 
+                "enterFrom": "fade",
+                "exitTo": "none"
+            },
+            {
+                "id": "s11-dialogue",
+                "type": "dialogue",
+                "speaker": "Father",
+                "text": "This is not possible...",
+                "layout": { "top": "40%", "left": "70%" },
+                "timeline": { "enter": [140, 150], "stay": [150, 240], "exit": [240, 250] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            }
+        ]
+    },
+    {
+        "sceneId": 12,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s12-bg", 
+                "type": "background_element", 
+                "assetKey": "motherDead",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 13,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s13-bg", 
+                "type": "background_element", 
+                "assetKey": "babyAlone",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 14,
+        "duration": 250,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s14-bg", 
+                "type": "background_element", 
+                "assetKey": "babySaved",
+                "timeline": { "enter": [0, 0], "stay": [0, 250], "exit": [250, 250] }, 
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            { 
+                "id": "s14-title", 
+                "type": "title", 
+                "text": "Prophecy will prove itself",
+                "layout": { "top": "10%", "left": "10%" },
+                "timeline": { "enter": [50, 70], "stay": [70, 250], "exit": [250, 250] }, 
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    }
+]
