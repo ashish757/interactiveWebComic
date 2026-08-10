@@ -14,6 +14,9 @@ export const ASSETS = {
         villainAttack: "/assets/villain-attack.jpeg",
         villainDie: "/assets/villain-die.jpeg",
         villainDie2: "/assets/villain-die-2.jpeg",
+        bgForest: "/assets/bg/forest.jpeg",
+        bgLight: "/assets/bg/lightning.jpeg",
+        bgRain: "/assets/bg/rainbg.mp4",
     },
     characters: {
         villain: "/assets/villain.png", // using public/assets/villain.png

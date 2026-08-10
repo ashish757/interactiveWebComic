@@ -1,7 +1,7 @@
 [
     {
         "sceneId": 1,
-        "duration": 200,
+        "duration": 210,
         "baseBackground": "none",
         "elements": [
             {
@@ -9,18 +9,9 @@
                 "type": "background_element",
                 "assetKey": "houseFamily",
                 "timeline": {
-                    "enter": [
-                        0,
-                        0
-                    ],
-                    "stay": [
-                        0,
-                        150
-                    ],
-                    "exit": [
-                        150,
-                        200
-                    ]
+                    "enter": [0, 0],
+                    "stay": [0, 210],
+                    "exit": [210, 210]
                 },
                 "enterFrom": "none",
                 "exitTo": "fade"
@@ -34,52 +25,27 @@
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": [
-                        20,
-                        40
-                    ],
-                    "stay": [
-                        40,
-                        150
-                    ],
-                    "exit": [
-                        150,
-                        200
-                    ]
+                    "enter": [20, 30],
+                    "stay": [30, 90],
+                    "exit": [90, 100]
                 },
                 "enterFrom": "fade",
                 "exitTo": "fade"
-            }
-        ]
-    },
-    {
-        "sceneId": 2,
-        "duration": 200,
-        "baseBackground": "none",
-        "elements": [
+            },
             {
                 "id": "s2-villain",
                 "type": "character",
                 "assetKey": "villain",
-                "widthClass": "w-90vw",
+                "widthClass": "min-h-screen",
                 "layout": {
                     "bottom": "0%",
                     "top": "0%",
                     "right": "0%"
                 },
                 "timeline": {
-                    "enter": [
-                        0,
-                        20
-                    ],
-                    "stay": [
-                        20,
-                        180
-                    ],
-                    "exit": [
-                        180,
-                        200
-                    ]
+                    "enter": [100, 110],
+                    "stay": [110, 150],
+                    "exit": [150, 200]
                 },
                 "enterFrom": "fade",
                 "exitTo": "none"
@@ -89,7 +55,11 @@
                 "type": "title",
                 "text": "Mogambo",
                 "layout": { "top": "10%", "left": "10%" },
-                "timeline": { "enter": [20, 30], "stay": [30, 190], "exit": [1900, 200] },
+                "timeline": {
+                    "enter": [100, 110],
+                    "stay": [110, 150],
+                    "exit": [150, 200]
+                },
                 "enterFrom": "fade",
                 "exitTo": "none"
             },
@@ -97,24 +67,15 @@
                 "id": "s2-dialogue-1",
                 "type": "title",
                 "speaker": "Mugambo",
-                "text": "I am Mugambo. And this world will be mine.",
+                "text": "this world will be mine.",
                 "layout": {
                     "top": "25%",
                     "left": "5%"
                 },
                 "timeline": {
-                    "enter": [
-                        40,
-                        50
-                    ],
-                    "stay": [
-                        50,
-                        110
-                    ],
-                    "exit": [
-                        110,
-                        120
-                    ]
+                    "enter": [120, 130],
+                    "stay": [130, 150],
+                    "exit": [150, 160]
                 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
@@ -130,26 +91,16 @@
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": [
-                        120,
-                        130
-                    ],
-                    "stay": [
-                        130,
-                        180
-                    ],
-                    "exit": [
-                        180,
-                        200
-                    ]
+                    "enter": [160, 170],
+                    "stay": [170, 200],
+                    "exit": [200, 210]
                 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
             }
         ]
-    }
-,
+    },
     {
         "sceneId": 3,
         "duration": 200,
