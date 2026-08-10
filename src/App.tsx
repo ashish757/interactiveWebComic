@@ -16,13 +16,13 @@ export default function App() {
     <div className="bg-black text-white">
       <ScrollyScene height="300vh" backgroundClass="bg-gradient-to-b from-blue-900 to-black">
         
-      <ScrollBubble id="bubble-1" top="10%" left="10%" speed={50}>
+      <ScrollBubble id="bubble-1" top="10%" left="10%">
         <SpeechBubble tailPosition="bottom-left">
           <ComicText variant="dialogue">A distant memory...</ComicText>
         </SpeechBubble>
       </ScrollBubble>
 
-      <ScrollBubble id="puzzle-1" top="40%" left="50%" speed={300}>
+      <ScrollBubble id="puzzle-1" top="40%" left="50%">
         <div className="bg-red-500 border-4 border-black p-8">
           <ComicText variant="boom">FAST ACTION!</ComicText>
         </div>
