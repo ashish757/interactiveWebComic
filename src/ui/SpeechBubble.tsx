@@ -3,7 +3,7 @@ import { cn } from "../util/cn";
 
 interface SpeechBubbleProps {
   children: ReactNode;
-  tailPosition?: "bottom-left" | "bottom-right";
+  tailPosition?: "bottom-left" | "bottom-right" | "left" | "right";
   className?: string;
 }
 
