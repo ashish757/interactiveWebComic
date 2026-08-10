@@ -1,7 +1,7 @@
 import ComicText from "./ui/ComicText";
 import ComicButton from "./ui/ComicButton";
 import { useStore } from "./store/useStore";
-import bg from './assets/rainbg.mp4';
+import bg from '../public/assets/bg/rainbg.mp4';
 
 export default function LandingPage() {
   const startGame = useStore((state) => state.start);
@@ -34,7 +34,7 @@ export default function LandingPage() {
             </ComicText>
           
           <ComicText variant="boom" size="lg">
-            Where your choices shape the story, and your intelligence unlock new paths.
+            Where your choices shape the story, and your decision unlock new paths.
           </ComicText>
         </div>
 
