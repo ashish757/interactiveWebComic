@@ -2,16 +2,16 @@ import { create } from 'zustand';
 
 interface State {
   hasStarted: boolean;
-  currentPanel: number;
+  activeElementId: string | null;
   start: () => void;
-  nextPanel: () => void;
   reset: () => void;
+  setActiveElement: (id: string) => void;
 }
 
 export const useStore = create<State>((set) => ({
   hasStarted: false,
-  currentPanel: 1,
-  start: () => set({ hasStarted: true, currentPanel: 1 }),
-  nextPanel: () => set((state) => ({ currentPanel: state.currentPanel + 1 })),
-  reset: () => set({ hasStarted: false, currentPanel: 1 }),
+  activeElementId: null,
+  start: () => set({ hasStarted: true, activeElementId: 'intro' }),
+  reset: () => set({ hasStarted: false, activeElementId: null }),
+  setActiveElement: (id) => set({ activeElementId: id }),
 }));
