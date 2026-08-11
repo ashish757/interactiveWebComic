@@ -128,14 +128,14 @@
     },
     {
         "sceneId": 4,
-        "duration": 150,
+        "duration": 120,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s4-bg", 
                 "type": "background_element", 
                 "assetKey": "villainAtGate",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 120] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
@@ -144,7 +144,7 @@
                 "type": "dialogue",
                 "text": "Prophecy!! I must stop it!",
                 "layout": { "top": "5%", "left": "55%" },
-                "timeline": { "enter": [40, 60], "stay": [60, 160], "exit": [160, 180] },
+                "timeline": { "enter": [10, 20], "stay": [20, 120], "exit": [120, 120] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "left"
@@ -153,14 +153,14 @@
     },
     {
         "sceneId": 5,
-        "duration": 150,
+        "duration": 120,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s5-bg", 
                 "type": "background_element", 
                 "assetKey": "houseAttack",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 120] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
@@ -169,7 +169,7 @@
                 "type": "title",
                 "text": "CREEK!",
                 "layout": { "top": "30%", "right": "5%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "timeline": { "enter": [1, 10], "stay": [10, 120], "exit": [120, 120] },
                 "enterFrom": "pop",
                 "exitTo": "none",
                 "tailPosition": "right"
@@ -179,9 +179,9 @@
                 "type": "dialogue",
                 "text": "Someone is at the gate!",
                 "layout": { "top": "10%", "left": "15%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
+                "timeline": { "enter": [20, 30], "stay": [30, 120], "exit": [120, 120] },
                 "enterFrom": "pop",
-                "exitTo": "fade",
+                "exitTo": "none",
                 "tailPosition": "right"
             }
         ]
@@ -215,7 +215,7 @@
                 "type": "title",
                 "text": "CRIT!!",
                 "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
-                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
                 "enterFrom": "left",
                 "exitTo": "none",
                 "tailPosition": "left"
@@ -224,7 +224,7 @@
     },
     {
         "sceneId": 7,
-        "duration": 200,
+        "duration": 150,
         "baseBackground": "none",
         "elements": [
             { 
@@ -241,7 +241,7 @@
                 "speaker": "Father", 
                 "text": "I won't let you hurt my family!",
                 "layout": { "top": "1%", "left": "22%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 190], "exit": [190, 200] },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
@@ -252,7 +252,7 @@
                 "speaker": "mogambo",
                 "text": "Try and stop me!",
                 "layout": { "top": "8%", "left": "56%" },
-                "timeline": { "enter": [110, 120], "stay": [120, 190], "exit": [190, 200] },
+                "timeline": { "enter": [60, 70], "stay": [70, 150], "exit": [150, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "right"
@@ -317,9 +317,9 @@
                 "speaker": "mogambo",
                 "text": "Only if he lives!",
                 "layout": { "top": "10%", "right": "2%" },
-                "timeline": { "enter": [70, 80], "stay": [70, 140], "exit": [140, 150] },
+                "timeline": { "enter": [50, 60], "stay": [60, 140], "exit": [140, 150] },
                 "enterFrom": "right",
-                "exitTo": "fade",
+                "exitTo": "none",
                 "tailPosition": "right"
             }
         ]
