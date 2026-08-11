@@ -29,8 +29,12 @@ export const ASSETS = {
         step3: "/assets/step3.jpeg",
         step4: "/assets/step4.jpeg",
         step5: "/assets/step5.jpeg",
+    },
+    audio: {
+        click: "/assets/audio/fah.mp3",
     }
 } as const;
 
 export type BackgroundKey = keyof typeof ASSETS.backgrounds;
 export type CharacterKey = keyof typeof ASSETS.characters;
+export type AudioKey = keyof typeof ASSETS.audio;

@@ -4,14 +4,27 @@ import { cn } from "../util/cn";
 interface ComicButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: "primary" | "secondary";
+  sound?: import("../data/assets").AudioKey | "none";
 }
+
+import { audioEngine } from "../util/audioEngine";
 
 export default function ComicButton({ 
   children, 
-  variant = "primary", 
+  variant = "primary",
+  sound = "click",
   className,
+  onClick,
   ...props 
 }: ComicButtonProps) {
+  
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (sound !== "none") {
+      audioEngine.play(sound);
+    }
+    if (onClick) onClick(e);
+  };
+
   return (
     <button 
       className={cn(
@@ -19,6 +32,7 @@ export default function ComicButton({
         variant === "primary" ? "bg-red-500 text-white shadow-[var(--shadow-comic)] hover:shadow-[var(--shadow-comic-hover)] hover:translate-y-1 hover:translate-x-1" : "bg-white text-black shadow-[var(--shadow-comic)] hover:shadow-[var(--shadow-comic-hover)] hover:translate-y-1 hover:translate-x-1",
         className
       )}
+      onClick={handleClick}
       {...props}
     >
       {children}
