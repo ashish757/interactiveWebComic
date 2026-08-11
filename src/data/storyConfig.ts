@@ -1,4 +1,45 @@
-[
+export type TimelinePhase = [number, number]; // [start, end] usually 0 to duration
+
+export type AnimationType = 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
+
+export type TimelineConfig = {
+    enter?: TimelinePhase;
+    stay?: TimelinePhase;
+    exit?: TimelinePhase;
+};
+
+export type StoryElement = {
+    id: string;
+    type: string;
+    layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string; width?: string; height?: string };
+    timeline: TimelineConfig;
+    enterFrom?: AnimationType;
+    exitTo?: AnimationType;
+    animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
+
+    assetKey?: string;
+    className?: string;
+    classNameImg?: string;
+
+    text?: string;
+    speaker?: string;
+    tailPosition?: "bottom-left" | "bottom-right" | 'left' | 'right';
+};
+
+export type Scene = {
+    sceneId: number;
+    duration: number;
+    baseBackground: string;
+    elements: StoryElement[];
+};
+
+
+
+
+
+
+
+export const storyData: Scene[] = [
     {
         "sceneId": 1,
         "duration": 210,
@@ -36,7 +77,7 @@
                 "id": "s2-villain",
                 "type": "character",
                 "assetKey": "villain",
-                "widthClass": "min-h-screen",
+                "classNameImg": "min-h-screen",
                 "layout": {
                     "bottom": "0%",
                     "top": "0%",
@@ -140,7 +181,7 @@
                 "exitTo": "none"
             },
             {
-                "id": "s3-dialogue",
+                "id": "s4-dialogue",
                 "type": "dialogue",
                 "text": "Prophecy!! I must stop it!",
                 "layout": { "top": "5%", "left": "55%" },
@@ -165,7 +206,7 @@
                 "exitTo": "none"
             },
             {
-                "id": "s3-dialogue",
+                "id": "s5-dialogue1",
                 "type": "title",
                 "text": "CREEK!",
                 "layout": { "top": "30%", "right": "5%" },
@@ -175,7 +216,7 @@
                 "tailPosition": "right"
             },
             {
-                "id": "s3-dialogue",
+                "id": "s5-dialogue2",
                 "type": "dialogue",
                 "text": "Someone is at the gate!",
                 "layout": { "top": "10%", "left": "15%" },
@@ -183,42 +224,6 @@
                 "enterFrom": "pop",
                 "exitTo": "none",
                 "tailPosition": "right"
-            }
-        ]
-    },
-    {
-        "sceneId": 6,
-        "duration": 150,
-        "baseBackground": "none",
-        "elements": [
-            { 
-                "id": "s6-bg", 
-                "type": "background_element", 
-                "assetKey": "villainAttack",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
-                "enterFrom": "none",
-                "exitTo": "none"
-            },
-            {
-                "id": "s5-dialogue",
-                "type": "dialogue",
-                "speaker": "Mugambo",
-                "text": "your magic is no match for me!",
-                "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
-                "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "right"
-            }, {
-
-                "id": "s5-dialogue",
-                "type": "title",
-                "text": "CRIT!!",
-                "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
-                "timeline": { "enter": [-100, -90], "stay": [-90, 150], "exit": [150, 150] },
-                "enterFrom": "left",
-                "exitTo": "none",
-                "tailPosition": "left"
             }
         ]
     },
@@ -260,29 +265,38 @@
         ]
     },
     {
-        "sceneId": 8,
+        "sceneId": 6,
         "duration": 150,
         "baseBackground": "none",
         "elements": [
-            { 
-                "id": "s8-bg", 
-                "type": "background_element", 
-                "assetKey": "villainBlast",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
+            {
+                "id": "s6-bg",
+                "type": "background_element",
+                "assetKey": "villainAttack",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
             {
-                "id": "s8-title",
-                "type": "title",
-                "text": "KA-BOOM",
-                "layout": {
-                    "top": "10%",
-                    "left": "10%"
-                },
-                "timeline": { "enter": [10, 10], "stay": [10, 150], "exit": [150, 150] },
+                "id": "s5-dialogue",
+                "type": "dialogue",
+                "speaker": "Mugambo",
+                "text": "your magic is no match for me!",
+                "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
-                "exitTo": "none"
+                "exitTo": "fade",
+                "tailPosition": "right"
+            }, {
+
+                "id": "s5-dialogue",
+                "type": "title",
+                "text": "CRIT!!",
+                "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
+                "timeline": { "enter": [-100, -90], "stay": [-90, 150], "exit": [150, 150] },
+                "enterFrom": "left",
+                "exitTo": "none",
+                "tailPosition": "left"
             }
         ]
     },
@@ -325,6 +339,33 @@
         ]
     },
     {
+        "sceneId": 8,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s8-bg",
+                "type": "background_element",
+                "assetKey": "villainBlast",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s8-title",
+                "type": "title",
+                "text": "KA-BOOM",
+                "layout": {
+                    "top": "10%",
+                    "left": "10%"
+                },
+                "timeline": { "enter": [10, 10], "stay": [10, 150], "exit": [150, 150] },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
         "sceneId": 101,
         "duration": 150,
         "baseBackground": "none",
@@ -338,7 +379,7 @@
                 "exitTo": "none"
             },
             {
-                "id": "s10-dialogue",
+                "id": "s101-dialogue1",
                 "type": "title",
                 "text": "Barrier!",
                 "layout": { "top": "1%", "left": "10%" },
@@ -348,7 +389,7 @@
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s10-dialogue",
+                "id": "s101-dialogue2",
                 "type": "dialogue",
                 "speaker": "Mother",
                 "text": "I Will save my child!",
@@ -394,7 +435,7 @@
                 "exitTo": "none"
             },
             {
-                "id": "s11-dialogue",
+                "id": "s11-dialogue2",
                 "type": "title",
                 "text": "Disintegrate!!",
                 "layout": { "top": "8%", "left": "65%" },
@@ -404,7 +445,7 @@
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s11-dialogue",
+                "id": "s11-dialogue3",
                 "type": "dialogue",
                 "speaker": "Father",
                 "text": "This is not possible...",
@@ -440,7 +481,7 @@
             "tailPosition": "bottom-left"
         },
         {
-            "id": "s101-dialogue",
+            "id": "s101-dialogue2",
             "type": "dialogue",
             "speaker": "kid",
             "text": "Zzzzz...",
@@ -485,14 +526,14 @@
     },
     {
         "sceneId": 14,
-        "duration": 250,
+        "duration": 150,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s14-bg", 
                 "type": "background_element", 
                 "assetKey": "babySaved",
-                "timeline": { "enter": [0, 0], "stay": [0, 250], "exit": [250, 250] }, 
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
@@ -501,8 +542,231 @@
                 "type": "title", 
                 "text": "Prophecy will prove itself",
                 "layout": { "top": "10%", "left": "10%" },
-                "timeline": { "enter": [50, 70], "stay": [70, 250], "exit": [250, 250] }, 
+                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 150] },
                 "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 15,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s15-bg",
+                "type": "background_element",
+                "assetKey": "platform",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s15-title",
+                "type": "character",
+                "assetKey": "train",
+                "classNameImg": "scale-110 rotate-[0deg]",
+                "layout": { "top": "1%", "left": "10%" },
+                "timeline": { "enter": [-60, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "left",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 16,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s16-bg",
+                "type": "background_element",
+                "assetKey": "hogwarts",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+
+            {
+                "id": "s16-c",
+                "type": "character",
+                "assetKey": "3sitting",
+                animation: "rocking",
+
+                "layout": { height: "300px", "top": "10%", "left": "10%" },
+                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
+                "enterFrom": "left",
+                "exitTo": "none"
+            },
+
+            {
+                "id": "s16-c2",
+                "type": "character",
+                "assetKey": "dinner",
+                animation: "scale-up-scale-down",
+
+                "layout": { height: "400px", "bottom": "10%", "right": "10%" },
+                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
+                "enterFrom": "right",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 17,
+        "duration": 250,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s17-bg",
+                "type": "background_element",
+                "assetKey": "bgClass",
+                "timeline": { "enter": [0, 0], "stay": [0, 250], "exit": [250, 250] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+
+            {
+                "id": "s17-c",
+                "type": "character",
+                "assetKey": "3adven1",
+                "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(5deg)" },
+                "timeline": { "enter": [0, 10], "stay": [10, 250], "exit": [250, 250] },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            },
+
+            {
+                "id": "s17-c2",
+                "type": "character",
+                "assetKey": "3adven2",
+                "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-5deg)" },
+                "timeline": { "enter": [50, 60], "stay": [60, 250], "exit": [250, 250] },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            },
+            {
+                "id": "s17-c3",
+                "type": "character",
+                "assetKey": "3adven3",
+                "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(10deg)" },
+                "timeline": { "enter": [100, 110], "stay": [110, 250], "exit": [250, 250] },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            },
+
+            {
+                "id": "s17-c4",
+                "type": "character",
+                "assetKey": "3adven4",
+                "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-10deg)" },
+                "timeline": { "enter": [150, 160], "stay": [160, 250], "exit": [250, 250] },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 18,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s18-bg",
+                "type": "background_element",
+                "assetKey": "corri",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 19,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s19-bg",
+                "type": "background_element",
+                "assetKey": "restricted",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 20,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s20-bg",
+                "type": "background_element",
+                "assetKey": "lib",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 21,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s21-bg",
+                "type": "background_element",
+                "assetKey": "shelf",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 22,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s22-bg",
+                "type": "background_element",
+                "assetKey": "reading",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 23,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s23-bg",
+                "type": "background_element",
+                "assetKey": "thinking",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 24,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s24-bg",
+                "type": "background_element",
+                "assetKey": "wear",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
                 "exitTo": "none"
             }
         ]
