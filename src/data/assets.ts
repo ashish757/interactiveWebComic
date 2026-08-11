@@ -6,6 +6,7 @@ export const ASSETS = {
         villainFather: "/assets/villain-father.jpeg",
         houseAttack: "/assets/house-attack.jpeg",
         fatherDead: "/assets/father-dead.jpeg",
+        motherProtect: "/assets/mother-protect.jpeg",
         motherCry: "/assets/mother-cry.jpeg",
         motherDead: "/assets/mother-dead.jpeg",
         babyAlone: "/assets/baby-alone.jpeg",
@@ -19,10 +20,15 @@ export const ASSETS = {
         bgRain: "/assets/bg/rainbg.mp4",
     },
     characters: {
-        villain: "/assets/villain.png", // using public/assets/villain.png
+        villain: "/assets/villain.png",
         father: "/assets/char/father.png",
         mother: "/assets/char/mother.png",
-        kid: "/assets/char/kid.png"
+        kid: "/assets/char/kid.png",
+        step1: "/assets/step1.jpeg",
+        step2: "/assets/step2.jpeg",
+        step3: "/assets/step3.jpeg",
+        step4: "/assets/step4.jpeg",
+        step5: "/assets/step5.jpeg",
     }
 } as const;
 

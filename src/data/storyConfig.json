@@ -47,7 +47,7 @@
                     "stay": [110, 150],
                     "exit": [150, 200]
                 },
-                "enterFrom": "fade",
+                "enterFrom": "right",
                 "exitTo": "none"
             },
             {
@@ -60,7 +60,7 @@
                     "stay": [110, 150],
                     "exit": [150, 200]
                 },
-                "enterFrom": "fade",
+                "enterFrom": "left",
                 "exitTo": "none"
             },
             {
@@ -103,16 +103,26 @@
     },
     {
         "sceneId": 3,
-        "duration": 200,
+        "duration": 150,
         "baseBackground": "none",
         "elements": [
             {
                 "id": "s3-bg", 
                 "type": "background_element", 
                 "assetKey": "house", 
-                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] },
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s3-dialogue",
+                "type": "title",
+                "text": "KRAKOOM!",
+                "layout": { "top": "20%", "right": "15%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "enterFrom": "pop",
+                "exitTo": "none",
+                "tailPosition": "right"
             }
         ]
     },
@@ -132,7 +142,7 @@
             {
                 "id": "s3-dialogue",
                 "type": "dialogue",
-                "text": "You will have to die kid!!",
+                "text": "Prophecy!! I must stop it!",
                 "layout": { "top": "5%", "left": "55%" },
                 "timeline": { "enter": [40, 60], "stay": [60, 160], "exit": [160, 180] },
                 "enterFrom": "pop",
@@ -143,23 +153,33 @@
     },
     {
         "sceneId": 5,
-        "duration": 200,
+        "duration": 150,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s5-bg", 
                 "type": "background_element", 
                 "assetKey": "houseAttack",
-                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] }, 
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s3-dialogue",
+                "type": "title",
+                "text": "CREEK!",
+                "layout": { "top": "30%", "right": "5%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "enterFrom": "pop",
+                "exitTo": "none",
+                "tailPosition": "right"
             },
             {
                 "id": "s3-dialogue",
                 "type": "dialogue",
                 "text": "Someone is at the gate!",
                 "layout": { "top": "10%", "left": "15%" },
-                "timeline": { "enter": [40, 60], "stay": [60, 160], "exit": [160, 180] },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "right"
@@ -185,10 +205,20 @@
                 "speaker": "Mugambo",
                 "text": "your magic is no match for me!",
                 "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "right"
+            }, {
+
+                "id": "s5-dialogue",
+                "type": "title",
+                "text": "CRIT!!",
+                "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "enterFrom": "left",
+                "exitTo": "none",
+                "tailPosition": "left"
             }
         ]
     },
@@ -211,10 +241,21 @@
                 "speaker": "Father", 
                 "text": "I won't let you hurt my family!",
                 "layout": { "top": "1%", "left": "22%" },
-                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "timeline": { "enter": [10, 20], "stay": [20, 190], "exit": [190, 200] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s7-dialogue",
+                "type": "dialogue",
+                "speaker": "mogambo",
+                "text": "Try and stop me!",
+                "layout": { "top": "8%", "left": "56%" },
+                "timeline": { "enter": [110, 120], "stay": [120, 190], "exit": [190, 200] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "right"
             }
         ]
     },
@@ -234,14 +275,14 @@
             {
                 "id": "s8-title",
                 "type": "title",
-                "text": "BOOM",
+                "text": "KA-BOOM",
                 "layout": {
                     "top": "10%",
                     "left": "10%"
                 },
-
-                "enterFrom": "fade",
-                "exitTo": "fade"
+                "timeline": { "enter": [10, 10], "stay": [10, 150], "exit": [150, 150] },
+                "enterFrom": "pop",
+                "exitTo": "none"
             }
         ]
     },
@@ -257,29 +298,51 @@
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+
+                "id": "s9-dialogue",
+                "type": "dialogue",
+                "speaker": "Father",
+                "text": "You know the prophecy will come true! you will be defeated by my son!",
+                "layout": { "top": "23%", "left": "30%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s9-dialogue",
+                "type": "dialogue",
+                "speaker": "mogambo",
+                "text": "Only if he lives!",
+                "layout": { "top": "10%", "right": "2%" },
+                "timeline": { "enter": [70, 80], "stay": [70, 140], "exit": [140, 150] },
+                "enterFrom": "right",
+                "exitTo": "fade",
+                "tailPosition": "right"
             }
         ]
     },
     {
-        "sceneId": 10,
+        "sceneId": 101,
         "duration": 150,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s10-bg", 
                 "type": "background_element", 
-                "assetKey": "motherCry",
+                "assetKey": "motherProtect",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
                 "exitTo": "none"
             },
             {
                 "id": "s10-dialogue",
-                "type": "dialogue",
-                "speaker": "Father",
-                "text": "I Will save you my child!",
-                "layout": { "top": "1%", "left": "50%" },
-                "timeline": { "enter": [20, 30], "stay": [20, 80], "exit": [80, 100] },
+                "type": "title",
+                "text": "Barrier!",
+                "layout": { "top": "1%", "left": "10%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
@@ -287,14 +350,15 @@
             {
                 "id": "s10-dialogue",
                 "type": "dialogue",
-                "speaker": "Father",
-                "text": "Zzzzz...",
-                "layout": { "top": "40%", "left": "70%" },
-                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+                "speaker": "Mother",
+                "text": "I Will save my child!",
+                "layout": { "top": "1%", "left": "50%" },
+                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
             }
+
         ]
     },
     {
@@ -331,6 +395,16 @@
             },
             {
                 "id": "s11-dialogue",
+                "type": "title",
+                "text": "Disintegrate!!",
+                "layout": { "top": "8%", "left": "65%" },
+                "timeline": { "enter": [120, 130], "stay": [130, 250], "exit": [250, 250] },
+                "enterFrom": "pop",
+                "exitTo": "none",
+                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s11-dialogue",
                 "type": "dialogue",
                 "speaker": "Father",
                 "text": "This is not possible...",
@@ -341,7 +415,43 @@
                 "tailPosition": "bottom-left"
             }
         ]
-    },
+    },{
+    "sceneId": 101,
+    "duration": 150,
+    "baseBackground": "none",
+    "elements": [
+        {
+            "id": "s101-bg",
+            "type": "background_element",
+            "assetKey": "motherCry",
+            "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+            "enterFrom": "none",
+            "exitTo": "none"
+        },
+        {
+            "id": "s101-dialogue",
+            "type": "dialogue",
+            "speaker": "mother",
+            "text": "Whyyy!",
+            "layout": { "top": "1%", "left": "50%" },
+            "timeline": { "enter": [20, 30], "stay": [20, 80], "exit": [80, 100] },
+            "enterFrom": "pop",
+            "exitTo": "fade",
+            "tailPosition": "bottom-left"
+        },
+        {
+            "id": "s101-dialogue",
+            "type": "dialogue",
+            "speaker": "kid",
+            "text": "Zzzzz...",
+            "layout": { "top": "40%", "left": "70%" },
+            "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+            "enterFrom": "pop",
+            "exitTo": "fade",
+            "tailPosition": "bottom-left"
+        }
+    ]
+},
     {
         "sceneId": 12,
         "duration": 150,
@@ -357,6 +467,7 @@
             }
         ]
     },
+
     {
         "sceneId": 13,
         "duration": 150,
