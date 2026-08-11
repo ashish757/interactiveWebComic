@@ -2,18 +2,20 @@ import { motion, useMotionValueEvent } from 'framer-motion';
 import { type ReactNode, useContext, useState } from 'react';
 import { useStore } from '../store/useStore';
 import { SceneContext } from './ScrollyScene';
-import type { TimelineConfig, AnimationType } from '../App';
+import type { TimelineConfig, AnimationType } from '../data/storyConfig';
 
 interface ScrollBubbleProps {
   id: string; 
   children: ReactNode;
-  layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string };
+  layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string; width?: string; height?: string };
   timeline?: TimelineConfig;
   enterFrom?: AnimationType;
   exitTo?: AnimationType;
+  animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
+  className?: string;
 }
 
-export default function ScrollBubble({ id, children, layout, timeline, enterFrom = 'bottom', exitTo = 'top' }: ScrollBubbleProps) {
+export default function ScrollBubble({ id, children, layout, timeline, enterFrom = 'bottom', exitTo = 'top', animation = 'none', className }: ScrollBubbleProps) {
   const setActiveElement = useStore((state) => state.setActiveElement);
   const activeElementId = useStore((state) => state.activeElementId);
   
@@ -94,8 +96,15 @@ export default function ScrollBubble({ id, children, layout, timeline, enterFrom
     }
   };
 
+  const getAnimationClass = () => {
+    if (animation === 'pulse') return 'animate-pulse';
+    if (animation === 'rocking') return 'animate-rocking';
+    if (animation === 'scale-up-scale-down') return 'animate-scale-up-scale-down';
+    return '';
+  };
+
   const isFullScreen = !layout;
-  const outerWrapperClass = isFullScreen ? "absolute inset-0 w-full h-full z-10" : "absolute z-10";
+  const outerWrapperClass = `${isFullScreen ? "absolute inset-0 w-full h-full z-10" : "absolute z-10"} ${className || ''}`;
   const innerWrapperClass = isFullScreen ? "w-full h-full" : "w-full h-full flex justify-center";
 
   return (
@@ -107,7 +116,7 @@ export default function ScrollBubble({ id, children, layout, timeline, enterFrom
         animate={animState}
       >
         <div 
-          className={`transition-all duration-300 w-full h-full ${isActive ? 'pointer-events-auto scale-105' : 'pointer-events-none scale-100'}`}
+          className={`transition-all duration-300 w-full h-full ${getAnimationClass()} ${isActive ? 'pointer-events-auto scale-105' : 'pointer-events-none scale-100'}`}
           onPointerEnter={() => setActiveElement(id)}
         >
           {children}

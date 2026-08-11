@@ -4,44 +4,10 @@ import ScrollBubble from './comic/ScrollBubble';
 import SpeechBubble from './ui/SpeechBubble';
 import ComicText from './ui/ComicText';
 import { useStore } from './store/useStore';
-import storyDataRaw from './data/storyConfig.json';
+import {storyData} from './data/storyConfig';
 import { ASSETS, type BackgroundKey, type CharacterKey } from './data/assets';
 import DialoguePop from "./comic/DialougePop.tsx";
 
-export type TimelinePhase = [number, number]; // [start, end] usually 0 to duration
-
-export type AnimationType = 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
-
-export type TimelineConfig = {
-    enter?: TimelinePhase;
-    stay?: TimelinePhase;
-    exit?: TimelinePhase;
-};
-
-export type StoryElement = {
-    id: string;
-    type: string;
-    layout: { top?: string; bottom?: string; left?: string; right?: string; transform?: string };
-    timeline: TimelineConfig;
-    enterFrom?: AnimationType;
-    exitTo?: AnimationType;
-    
-    assetKey?: string;
-    widthClass?: string;
-    
-    text?: string;
-    speaker?: string;
-    tailPosition?: "bottom-left" | "bottom-right" | 'left' | 'right';
-};
-
-export type Scene = {
-    sceneId: number;
-    duration: number;
-    baseBackground: string;
-    elements: StoryElement[];
-};
-
-const storyData = storyDataRaw as Scene[];
 
 export default function App() {
     const hasStarted = useStore((state) => state.hasStarted);
@@ -59,10 +25,8 @@ export default function App() {
                     backgroundClass={scene.baseBackground !== 'none' ? `bg-[url('${ASSETS.backgrounds[scene.baseBackground as BackgroundKey]}')] bg-cover bg-center` : 'bg-black'}
                 >
 
-                    {/* 3. Map over elements ONLY ONCE per scene */}
                     {scene.elements.map((el) => {
 
-                        // --- RENDER PARALLAX ELEMENTS (Titles, Backgrounds, Characters) ---
                         if (el.type === 'character' || el.type === 'title' || el.type === 'background_element') {
                             return (
                                 <ScrollBubble
@@ -72,6 +36,8 @@ export default function App() {
                                     timeline={el.timeline}
                                     enterFrom={el.enterFrom}
                                     exitTo={el.exitTo}
+                                    animation={el.animation}
+                                    className={el.className}
                                 >
                                     {el.type === 'title' && (
                                         <div className="bg-white text-black border-4 border-black p-4 font-boom text-4xl uppercase shadow-[var(--shadow-comic)]">
@@ -90,7 +56,11 @@ export default function App() {
                                     {el.type === 'character' && (
                                         <img
                                             src={ASSETS.characters[el.assetKey as CharacterKey]}
-                                            className={`${el.widthClass || 'w-80'} h-auto drop-shadow-[var(--shadow-comic)]`}
+                                            className={`${el.classNameImg || ((el.layout?.width || el.layout?.height) ? 'object-contain' : 'w-80 h-auto')} drop-shadow-[var(--shadow-comic)]`}
+                                            style={{
+                                                width: el.layout?.width ? '100%' : undefined,
+                                                height: el.layout?.height ? '100%' : undefined,
+                                            }}
                                             alt="Character"
                                         />
                                     )}
@@ -98,7 +68,6 @@ export default function App() {
                             );
                         }
 
-                        // --- RENDER POP-IN ELEMENTS (Dialogues) ---
                         if (el.type === 'dialogue') {
                             return (
                                 <DialoguePop
@@ -108,6 +77,8 @@ export default function App() {
                                     timeline={el.timeline}
                                     enterFrom={el.enterFrom}
                                     exitTo={el.exitTo}
+                                    animation={el.animation}
+                                    className={el.className}
                                 >
                                     <SpeechBubble tailPosition={el.tailPosition || "bottom-left"}>
                                         <ComicText variant="dialogue">{el.text}</ComicText>
