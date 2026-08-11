@@ -215,7 +215,7 @@
                 "type": "title",
                 "text": "CRIT!!",
                 "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
-                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
+                "timeline": { "enter": [-100, -90], "stay": [-90, 150], "exit": [150, 150] },
                 "enterFrom": "left",
                 "exitTo": "none",
                 "tailPosition": "left"
@@ -342,7 +342,7 @@
                 "type": "title",
                 "text": "Barrier!",
                 "layout": { "top": "1%", "left": "10%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
+                "timeline": { "enter": [-20, -10], "stay": [-10, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"

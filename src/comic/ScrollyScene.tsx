@@ -26,7 +26,7 @@ export default function ScrollyScene({
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start end", "end end"]
   });
 
   return (

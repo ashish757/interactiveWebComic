@@ -25,9 +25,17 @@ export default function ScrollBubble({ id, children, layout, timeline, enterFrom
 
   const [animState, setAnimState] = useState<'hidden' | 'visible' | 'exit'>('hidden');
 
-  const toProgress = (val: number) => Math.min(Math.max(val / duration, 0), 1);
+  // The original timeline mapped val/duration to the ["start start", "end end"] window.
+  // In our new ["start end", "end end"] offset, "start start" occurs at progress = 100 / duration.
+  // We perfectly preserve the old mapping for positive values and extrapolate for negative values.
+  const toProgress = (val: number) => {
+      const startStartProgress = 100 / duration;
+      const scrollableWindow = 1 - startStartProgress;
+      const oldProgress = val / duration;
+      return Math.min(Math.max(startStartProgress + (oldProgress * scrollableWindow), 0), 1);
+  };
 
-  const enterStart = timeline?.enter ? toProgress(timeline.enter[0]) : 0;
+  const enterStart = timeline?.enter ? toProgress(timeline.enter[0]) : toProgress(0);
   const stayEnd = timeline?.stay ? toProgress(timeline.stay[1]) : 1;
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
