@@ -46,11 +46,21 @@ export default function App() {
                                     )}
 
                                     {el.type === 'background_element' && (
+                                        ASSETS.backgrounds[el.assetKey as BackgroundKey].endsWith(".mp4") ? (
+                                            <video
+                                                src={ASSETS.backgrounds[el.assetKey as BackgroundKey]}
+                                                autoPlay
+                                                loop
+                                                muted
+                                                className="w-full h-screen object-cover absolute inset-0 z-0"
+                                            />
+                                        ) : (
                                         <img
                                             src={ASSETS.backgrounds[el.assetKey as BackgroundKey]}
                                             className="w-full h-screen object-cover absolute inset-0 z-0"
                                             alt="Background"
                                         />
+                            )
                                     )}
 
                                     {el.type === 'character' && (
