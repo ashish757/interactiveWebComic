@@ -1,7 +1,6 @@
 import ComicText from "./ui/ComicText";
 import ComicButton from "./ui/ComicButton";
 import { useStore } from "./store/useStore";
-import bg from '../public/assets/bg/rainbg.mp4';
 
 export default function LandingPage() {
   const startGame = useStore((state) => state.start);
@@ -15,7 +14,7 @@ export default function LandingPage() {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src={bg} 
+        src={"/assets/bg/rainbg.mp4"}
       />
 
 
