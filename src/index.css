@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 @layer base {
+    html {
+        scroll-snap-type: y proximity;
+    }
     * {
         margin: 0;
         padding: 0;

@@ -770,5 +770,35 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             }
         ]
+    },
+    {
+        "sceneId": 25,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s25-bg",
+                "type": "background_element",
+                "assetKey": "enter",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 26,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s26-bg",
+                "type": "background_element",
+                "assetKey": "awake",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
     }
 ]

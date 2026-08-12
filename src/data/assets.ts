@@ -28,6 +28,8 @@ export const ASSETS = {
         reading: "/assets/p2/reading.jpeg",
         corri: "/assets/p2/corri.jpeg",
         lib: "/assets/p2/lib.jpeg",
+        awake: "/assets/p2/awake.jpeg",
+        enter: "/assets/p2/enter.jpeg",
 
     },
     characters: {

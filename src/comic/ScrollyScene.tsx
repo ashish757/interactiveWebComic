@@ -36,12 +36,12 @@ export default function ScrollyScene({
         className="relative w-full" 
         style={{ height: `${duration}vh` }}
       >
+        <div className="absolute top-0 w-full h-[1px] snap-start pointer-events-none" />
+
         <div className="sticky top-0 w-full h-screen overflow-hidden z-0">
-          {/* Background layer */}
           <div className={cn("absolute inset-0 w-full h-full", backgroundClass)}>
           </div>
 
-          {/* Interactive layer */}
           <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
             {React.Children.map(children, (child) => {
               if (React.isValidElement<{ id: string; className?: string }>(child)) {
