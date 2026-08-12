@@ -252,7 +252,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s7-dialogue",
+                "id": "s7-dialogue2",
                 "type": "dialogue",
                 "speaker": "mogambo",
                 "text": "Try and stop me!",
@@ -289,7 +289,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "right"
             }, {
 
-                "id": "s5-dialogue",
+                "id": "s5-dialogue2",
                 "type": "title",
                 "text": "CRIT!!",
                 "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
@@ -326,7 +326,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s9-dialogue",
+                "id": "s9-dialogue2",
                 "type": "dialogue",
                 "speaker": "mogambo",
                 "text": "Only if he lives!",
@@ -371,7 +371,7 @@ export const storyData: Scene[] = [
         "baseBackground": "none",
         "elements": [
             { 
-                "id": "s10-bg", 
+                "id": "s101-bg",
                 "type": "background_element", 
                 "assetKey": "motherProtect",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
@@ -457,12 +457,12 @@ export const storyData: Scene[] = [
             }
         ]
     },{
-    "sceneId": 101,
+    "sceneId": 111,
     "duration": 150,
     "baseBackground": "none",
     "elements": [
         {
-            "id": "s101-bg",
+            "id": "s111-bg",
             "type": "background_element",
             "assetKey": "motherCry",
             "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
@@ -470,7 +470,7 @@ export const storyData: Scene[] = [
             "exitTo": "none"
         },
         {
-            "id": "s101-dialogue",
+            "id": "s111-dialogue",
             "type": "dialogue",
             "speaker": "mother",
             "text": "Whyyy!",
@@ -481,7 +481,7 @@ export const storyData: Scene[] = [
             "tailPosition": "bottom-left"
         },
         {
-            "id": "s101-dialogue2",
+            "id": "s111-dialogue2",
             "type": "dialogue",
             "speaker": "kid",
             "text": "Zzzzz...",
@@ -795,6 +795,171 @@ export const storyData: Scene[] = [
                 "id": "s26-bg",
                 "type": "background_element",
                 "assetKey": "awake",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 27,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s27-bg",
+                "type": "background_element",
+                "assetKey": "takeoff",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 28,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s28-bg",
+                "type": "background_element",
+                "assetKey": "sky",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 281,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s281-bg",
+                "type": "background_element",
+                "assetKey": "fly",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 29,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s29-bg",
+                "type": "background_element",
+                "assetKey": "ministry",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 30,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s30-bg",
+                "type": "background_element",
+                "assetKey": "entry",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 31,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s31-bg",
+                "type": "background_element",
+                "assetKey": "puzzleGate",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 32,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s32-bg",
+                "type": "background_element",
+                "assetKey": "open1",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 33,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s33-bg",
+                "type": "background_element",
+                "assetKey": "inside",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 34,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s34-bg",
+                "type": "background_element",
+                "assetKey": "ball",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 35,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s35-bg",
+                "type": "background_element",
+                "assetKey": "snatch",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 36,
+        "duration": 150,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s36-bg",
+                "type": "background_element",
+                "assetKey": "run",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
