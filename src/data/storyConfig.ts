@@ -1,4 +1,4 @@
-export type TimelinePhase = [number, number]; // [start, end] usually 0 to duration
+export type TimelinePhase = [number, number];
 
 export type AnimationType = 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
 
@@ -24,6 +24,13 @@ export type StoryElement = {
     text?: string;
     speaker?: string;
     tailPosition?: "bottom-left" | "bottom-right" | 'left' | 'right';
+    
+    gameTarget?: string;
+};
+
+export type BranchCondition = {
+    game: string;
+    outcome: 'win' | 'lose';
 };
 
 export type Scene = {
@@ -31,6 +38,11 @@ export type Scene = {
     duration: number;
     baseBackground: string;
     elements: StoryElement[];
+    // For minigame scenes
+    isMinigame?: string;
+    minigameBackground?: string;
+    // For branching narrative scenes
+    branch?: BranchCondition;
 };
 
 
@@ -723,8 +735,26 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s21-button",
+                "type": "button",
+                "text": "CAST SPELL",
+                "gameTarget": "simon",
+                "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
+                "enterFrom": "bottom",
+                "exitTo": "none"
             }
         ]
+    },
+    {
+        "sceneId": 210, // inserted scene for Simon Game
+        "duration": 100,
+        "baseBackground": "none",
+        "isMinigame": "simon",
+        "minigameBackground": "shelf",
+        "elements": []
     },
     {
         "sceneId": 22,
@@ -962,6 +992,74 @@ export const storyData: Scene[] = [
                 "assetKey": "run",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s36-button",
+                "type": "button",
+                "text": "FIGHT SNAKE",
+                "gameTarget": "snake",
+                "layout": { "bottom": "10%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
+                "enterFrom": "bottom",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 37,
+        "duration": 100,
+        "baseBackground": "none",
+        "isMinigame": "snake",
+        "minigameBackground": "grass",
+        "elements": []
+    },
+    {
+        "sceneId": 38,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s38w-bg",
+                "type": "background_element",
+                "assetKey": "chainDraco",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s38w-dialogue",
+                "type": "title",
+                "text": "YOU DEFEATED THE SNAKE!",
+                "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 39,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s39l-bg",
+                "type": "background_element",
+                "assetKey": "chainShub",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s39l-dialogue",
+                "type": "title",
+                "text": "THE SNAKE GOT YOU...",
+                "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "enterFrom": "fade",
                 "exitTo": "none"
             }
         ]

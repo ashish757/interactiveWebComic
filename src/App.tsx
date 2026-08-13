@@ -3,29 +3,81 @@ import ScrollyScene from './comic/ScrollyScene';
 import ScrollBubble from './comic/ScrollBubble';
 import SpeechBubble from './ui/SpeechBubble';
 import ComicText from './ui/ComicText';
+import ComicActionButton from './comic/ComicActionButton';
+import SnakeGame from './comic/SnakeGame';
 import { useStore } from './store/useStore';
-import {storyData} from './data/storyConfig';
+import { storyData, type Scene } from './data/storyConfig';
 import { ASSETS, type BackgroundKey, type CharacterKey } from './data/assets';
 import DialoguePop from "./comic/DialougePop.tsx";
 
-
 export default function App() {
     const hasStarted = useStore((state) => state.hasStarted);
+    const activeGame = useStore((state) => state.activeGame);
+    const gameOutcomes = useStore((state) => state.gameOutcomes);
 
     if (!hasStarted) {
         return <LandingPage />;
     }
 
+    const visibleScenes: Scene[] = [];
+    
+    for (const scene of storyData) {
+        if (scene.branch) {
+            const outcome = gameOutcomes[scene.branch.game];
+            if (outcome !== scene.branch.outcome) {
+                continue;
+            }
+        }
+
+        visibleScenes.push(scene);
+
+        const gameTriggerElement = scene.elements?.find(el => el.type === 'button' && el.gameTarget);
+        if (gameTriggerElement && gameTriggerElement.gameTarget) {
+            const target = gameTriggerElement.gameTarget;
+            if (activeGame !== target && !gameOutcomes[target]) {
+                break;
+            }
+        }
+
+        if (scene.isMinigame) {
+            if (!gameOutcomes[scene.isMinigame]) {
+                break;
+            }
+        }
+    }
+
     return (
         <div className="bg-black text-white w-full">
-            {storyData.map((scene) => (
+            {visibleScenes.map((scene) => (
                 <ScrollyScene
                     key={scene.sceneId}
                     duration={scene.duration}
-                    backgroundClass={scene.baseBackground !== 'none' ? `bg-[url('${ASSETS.backgrounds[scene.baseBackground as BackgroundKey]}')] bg-cover bg-center` : 'bg-black'}
+                    backgroundClass={scene.baseBackground !== 'none' ? `bg-[url('${ASSETS.backgrounds[scene.baseBackground as BackgroundKey]}')] bg-cover bg-center` : scene.minigameBackground ? 'bg-zinc-800' : 'bg-black'}
                 >
+                    {scene.isMinigame === 'snake' && (
+                        <SnakeGame gameId="snake" />
+                    )}
+                    {scene.isMinigame === 'simon' && (
+                        <SimonGame gameId="simon" />
+                    )}
 
-                    {scene.elements.map((el) => {
+                    {scene.elements?.map((el) => {
+                        if (el.type === 'button') {
+                            return (
+                                <ComicActionButton
+                                    key={el.id}
+                                    id={el.id}
+                                    text={el.text || 'CLICK ME'}
+                                    gameTarget={el.gameTarget}
+                                    layout={el.layout}
+                                    timeline={el.timeline}
+                                    enterFrom={el.enterFrom}
+                                    exitTo={el.exitTo}
+                                    animation={el.animation}
+                                    className={el.className}
+                                />
+                            );
+                        }
 
                         if (el.type === 'character' || el.type === 'title' || el.type === 'background_element') {
                             return (
@@ -46,7 +98,7 @@ export default function App() {
                                     )}
 
                                     {el.type === 'background_element' && (
-                                        ASSETS.backgrounds[el.assetKey as BackgroundKey].endsWith(".mp4") ? (
+                                        ASSETS.backgrounds[el.assetKey as BackgroundKey]?.endsWith(".mp4") ? (
                                             <video
                                                 src={ASSETS.backgrounds[el.assetKey as BackgroundKey]}
                                                 autoPlay
