@@ -273,13 +273,14 @@ export const storyData: Scene[] = [
                 "id": "s7-dialogue",
                 "type": "dialogue",
                 "speaker": "Mugambo",
-                "text": "Try ans stop me if you can!",
+                "text": "Try and stop me if you can!",
                 "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "right"
-            }, {
+            },
+            {
 
                 "id": "s7-dialogue2",
                 "type": "title",
@@ -1010,7 +1011,7 @@ export const storyData: Scene[] = [
     },
     {
         "sceneId": 25,
-        "duration": 150,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             {
@@ -1020,12 +1021,33 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s25-dialogue1",
+                type: "dialogue",
+                text: "Good, he is sleeping",
+                layout: { top: "30%", "left": "22%" },
+                timeline: { enter: 10, exit:100 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "right"
+            },
+            {
+                id: "s25-dialogue2",
+                type: "dialogue",
+                text: "Dont worry, he is my friend, he will help us",
+                layout: { top: "15%", "left": "35%" },
+                timeline: { enter: 100, exit:200 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-right"
             }
+
         ]
     },
     {
         "sceneId": 26,
-        "duration": 150,
+        "duration": 200,
         "baseBackground": "none",
         "elements": [
             {
@@ -1035,7 +1057,28 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s26-dialogue1",
+                type: "dialogue",
+                text: "aaah...GHOST!! Help me, help me",
+                layout: { top: "15%", "left": "35%" },
+                timeline: { enter: 10, exit:100 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-right"
+            },
+            {
+                id: "s26-dialogue2",
+                type: "dialogue",
+                text: "Just Shut Up....",
+                layout: { top: "25%", "right": "3%" },
+                timeline: { enter: 100},
+                enterFrom: "fade",
+                tailPosition: "right"
             }
+
+
         ]
     },
     {
@@ -1050,7 +1093,18 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s27-dialogue1",
+                type: "dialogue",
+                text: "Dont Worry, I have connections in the ministry, I will get you all inside",
+                layout: { top: "8%", "right": "25%" },
+                timeline: { enter: 10},
+                enterFrom: "fade",
+                exitTo: 'none',
+                tailPosition: "bottom-right"
             }
+
         ]
     },
     {
@@ -1062,10 +1116,23 @@ export const storyData: Scene[] = [
                 "id": "s28-bg",
                 "type": "background_element",
                 "assetKey": "sky",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },{
+                "id": "s2-villain",
+                "type": "character",
+                "assetKey": "flying",
+                "classNameImg": "min-h-screen",
+                "layout": {
+                    "top": "-10%",
+                },
+                "timeline": {
+                    enter: [-80, 20],
+                    exit: [20, 120]
+                },
+                "enterFrom": "right",
+                "exitTo": "left"
+            },
         ]
     },
     {
@@ -1077,7 +1144,6 @@ export const storyData: Scene[] = [
                 "id": "s281-bg",
                 "type": "background_element",
                 "assetKey": "fly",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             }
@@ -1092,10 +1158,30 @@ export const storyData: Scene[] = [
                 "id": "s29-bg",
                 "type": "background_element",
                 "assetKey": "ministry",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s29-dialogue1",
+                type: "dialogue",
+                text: "Alright, Lets Go",
+                layout: { top: "40%", "left": "30%" },
+                timeline: { enter: 10, exit:100 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-left"
+            },
+            {
+                id: "s29-dialogue2",
+                type: "dialogue",
+                text: "No, Wait, let me go, I know the place, I will take you to the prophecy orb",
+                layout: { top: "35%", "left": "20%" },
+                timeline: { enter: 100, },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "bottom-right"
+            },
+
         ]
     },
     {
@@ -1107,10 +1193,19 @@ export const storyData: Scene[] = [
                 "id": "s30-bg",
                 "type": "background_element",
                 "assetKey": "entry",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s30-dialogue1",
+                type: "dialogue",
+                text: "Follow me, Stay Quiet.",
+                layout: { top: "13%", "left": "62%" },
+                timeline: { enter: 10 },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "left"
+            },
         ]
     },
     {
@@ -1122,7 +1217,6 @@ export const storyData: Scene[] = [
                 "id": "s31-bg",
                 "type": "background_element",
                 "assetKey": "puzzleGate",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             }
@@ -1137,7 +1231,6 @@ export const storyData: Scene[] = [
                 "id": "s32-bg",
                 "type": "background_element",
                 "assetKey": "open1",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             }
@@ -1145,17 +1238,36 @@ export const storyData: Scene[] = [
     },
     {
         "sceneId": 33,
-        "duration": 150,
+        "duration": 170,
         "baseBackground": "none",
         "elements": [
             {
                 "id": "s33-bg",
                 "type": "background_element",
                 "assetKey": "inside",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s33-dialogue1",
+                type: "dialogue",
+                text: "WOW, There are so manu orbs here",
+                layout: { top: "37%", "left": "35%" },
+                timeline: { enter: 10, exit: 90 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-right"
+            },
+            {
+                id: "s33-dialogue2",
+                type: "dialogue",
+                text: "SO how fo we find the right one?",
+                layout: { top: "37%", "left": "25%" },
+                timeline: { enter: 90},
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "bottom-right"
+            },
         ]
     },
     {
@@ -1167,10 +1279,19 @@ export const storyData: Scene[] = [
                 "id": "s34-bg",
                 "type": "background_element",
                 "assetKey": "ball",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s34-dialogue1",
+                type: "dialogue",
+                text: "Hey, look this one started to glow when i touched it",
+                layout: { top: "27%", "right": "10%" },
+                timeline: { enter: 10, },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "left"
+            },
         ]
     },
     {
@@ -1185,6 +1306,15 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s35-title",
+                type: "title",
+                text: "SNATCH!!",
+                layout: { top: "10%", "left": "50%", transform: "translateX(-50%)" },
+                timeline: { enter: 10, },
+                enterFrom: "pop",
+                exitTo: "none",
             }
         ]
     },
@@ -1202,12 +1332,32 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
+                id: "s36-dialogue1",
+                type: "dialogue",
+                text: "Draco, you traitor, Come back here give us the orb",
+                layout: { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 10, exit: 100},
+                "enterFrom": "fade",
+                "exitTo": "fade",
+                tailPosition: "bottom-left"
+            },
+            {
+                "id": "s36-dialogue2",
+                "type": "dialogue",
+                "text": "Oh no, the snake is chasing us, we have to fight it",
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 100, exit: 200 },
+                "enterFrom": "fade",
+                "exitTo": "fade",
+                tailPosition: "bottom-left"
+            },
+            {
                 "id": "s36-button",
                 "type": "button",
                 "text": "FIGHT SNAKE",
                 "gameTarget": "snake",
                 "layout": { "bottom": "10%", "left": "50%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
+                "timeline": { "enter": 200 },
                 "enterFrom": "bottom",
                 "exitTo": "none"
             }
@@ -1240,8 +1390,18 @@ export const storyData: Scene[] = [
                 "type": "title",
                 "text": "YOU DEFEATED THE SNAKE!",
                 "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "timeline": { "enter": 10 },
                 "enterFrom": "fade",
+                "exitTo": "none"
+            },
+            {
+                "id": "s38w-dialogue",
+                "type": "title",
+                "text": "Draco is captured and the prophecy orb is saved",
+                "layout": { "bottom": "5%", "left": "70%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 30 },
+                "enterFrom": "fade",
+                size:"md",
                 "exitTo": "none"
             }
         ]
@@ -1267,6 +1427,16 @@ export const storyData: Scene[] = [
                 "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
                 "enterFrom": "fade",
+                "exitTo": "none"
+            },
+            {
+                "id": "s38w-dialogue",
+                "type": "title",
+                "text": "Draco has caputred Shub",
+                "layout": { "bottom": "5%", "left": "70%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 30 },
+                "enterFrom": "fade",
+                size:"md",
                 "exitTo": "none"
             }
         ]

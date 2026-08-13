@@ -78,6 +78,7 @@ export const ASSETS = {
         "3adven2": "assets/p2/3adven2.jpg",
         "3adven3": "assets/p2/3adven3.jpg",
         "3adven4": "assets/p2/3adven4.jpg",
+        flying: "assets/p2/flying.png",
 
     },
     audio: {
