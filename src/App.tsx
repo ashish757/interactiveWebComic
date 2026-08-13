@@ -7,9 +7,11 @@ import ComicActionButton from './comic/ComicActionButton';
 import SnakeGame from './comic/SnakeGame';
 import SimonGame from './comic/SimonGame';
 import { useStore } from './store/useStore';
-import { storyData, type Scene } from './data/storyConfig';
+import { storyData } from './data/storyConfig';
+import type {Scene} from './types/storyConfig.type';
 import { ASSETS, type BackgroundKey, type CharacterKey } from './data/assets';
 import DialoguePop from "./comic/DialougePop.tsx";
+import CaptionText from "./ui/CaptionText.tsx";
 
 export default function App() {
     const hasStarted = useStore((state) => state.hasStarted);
@@ -80,7 +82,7 @@ export default function App() {
                             );
                         }
 
-                        if (el.type === 'character' || el.type === 'title' || el.type === 'background_element') {
+                        else if (el.type === 'character' || el.type === 'background_element') {
                             return (
                                 <ScrollBubble
                                     key={el.id}
@@ -92,12 +94,6 @@ export default function App() {
                                     animation={el.animation}
                                     className={el.className}
                                 >
-                                    {el.type === 'title' && (
-                                        <div className="bg-white text-black border-4 border-black p-4 font-boom text-4xl uppercase shadow-[var(--shadow-comic)]">
-                                            {el.text}
-                                        </div>
-                                    )}
-
                                     {el.type === 'background_element' && (
                                         ASSETS.backgrounds[el.assetKey as BackgroundKey]?.endsWith(".mp4") ? (
                                             <video
@@ -131,7 +127,7 @@ export default function App() {
                             );
                         }
 
-                        if (el.type === 'dialogue') {
+                        else if (el.type === 'dialogue' || el.type === 'boom' || el.type === 'title') {
                             return (
                                 <DialoguePop
                                     key={el.id}
@@ -143,12 +139,21 @@ export default function App() {
                                     animation={el.animation}
                                     className={el.className}
                                 >
-                                    <SpeechBubble tailPosition={el.tailPosition || "bottom-left"}>
-                                        <ComicText variant="dialogue">{el.text}</ComicText>
-                                    </SpeechBubble>
+                                    { el.type === "title" &&  <ComicText variant="title" size={el.size}>{el.text}</ComicText> }
+                                    {
+                                        el.type === "dialogue" && (<SpeechBubble tailPosition={el.tailPosition || "bottom-left"}>
+                                            <ComicText variant="dialogue">{el.text}</ComicText>
+                                        </SpeechBubble>)
+                                     }
                                 </DialoguePop>
                             );
+                        } else if (el.type === 'caption') {
+                            return <CaptionText size={el.size}>{el.text}</CaptionText>
+
+
                         }
+
+
 
                         return null;
                     })}

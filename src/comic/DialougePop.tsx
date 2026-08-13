@@ -2,7 +2,7 @@ import { motion, useMotionValueEvent } from 'framer-motion';
 import { type ReactNode, useContext, useState } from 'react';
 import { useStore } from '../store/useStore';
 import { SceneContext } from './ScrollyScene';
-import type { TimelineConfig, AnimationType } from '../data/storyConfig';
+import type { TimelineConfig, AnimationType } from '../types/storyConfig.type';
 
 interface DialoguePopProps {
     id: string;
@@ -13,6 +13,7 @@ interface DialoguePopProps {
     exitTo?: AnimationType;
     animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
     className?: string;
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 export default function DialoguePop({ id, children, layout, timeline, enterFrom = 'pop', exitTo = 'fade', animation = 'none', className }: DialoguePopProps) {
@@ -27,9 +28,6 @@ export default function DialoguePop({ id, children, layout, timeline, enterFrom 
 
     const [animState, setAnimState] = useState<'hidden' | 'visible' | 'exit'>('hidden');
 
-    // The original timeline mapped val/duration to the ["start start", "end end"] window.
-    // In our new ["start end", "end end"] offset, "start start" occurs at progress = 100 / duration.
-    // We perfectly preserve the old mapping for positive values and extrapolate for negative values.
     const toProgress = (val: number) => {
         const startStartProgress = 100 / duration;
         const scrollableWindow = 1 - startStartProgress;
@@ -37,8 +35,11 @@ export default function DialoguePop({ id, children, layout, timeline, enterFrom 
         return Math.min(Math.max(startStartProgress + (oldProgress * scrollableWindow), 0), 1);
     };
 
-    const enterStart = timeline?.enter ? toProgress(timeline.enter[0]) : toProgress(0);
-    const stayEnd = timeline?.stay ? toProgress(timeline.stay[1]) : 1;
+    const enterVal = typeof timeline?.enter === 'number' ? timeline.enter : (timeline?.enter?.[0] ?? 0);
+    const exitVal = typeof timeline?.exit === 'number' ? timeline.exit : (Array.isArray(timeline?.stay) ? timeline.stay[1] : (Array.isArray(timeline?.exit) ? timeline.exit[0] : 999999));
+
+    const enterStart = toProgress(enterVal);
+    const stayEnd = toProgress(exitVal);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
         if (enterStart === 0 && latest === 0 && stayEnd > 0) {

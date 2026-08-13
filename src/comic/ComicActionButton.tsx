@@ -1,11 +1,12 @@
 import ScrollBubble from './ScrollBubble';
 import { useStore } from '../store/useStore';
 import { cn } from '../util/cn';
+import type { TimelineConfig } from '../types/storyConfig.type';
 
 interface ComicActionButtonProps {
     id: string;
     layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string; width?: string; height?: string };
-    timeline: { enter?: [number, number]; stay?: [number, number]; exit?: [number, number] };
+    timeline: TimelineConfig;
     enterFrom?: 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
     exitTo?: 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
     animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
@@ -31,8 +32,6 @@ export default function ComicActionButton({
         if (gameTarget) {
             setActiveGame(gameTarget);
             
-            // Scroll to the next scene which should be the game scene
-            // A slight delay ensures the new scene is rendered first before scrolling
             setTimeout(() => {
                 window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
             }, 100);

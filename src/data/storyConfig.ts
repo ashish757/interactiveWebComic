@@ -1,54 +1,5 @@
-export type TimelinePhase = [number, number];
 
-export type AnimationType = 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
-
-export type TimelineConfig = {
-    enter?: TimelinePhase;
-    stay?: TimelinePhase;
-    exit?: TimelinePhase;
-};
-
-export type StoryElement = {
-    id: string;
-    type: string;
-    layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string; width?: string; height?: string };
-    timeline: TimelineConfig;
-    enterFrom?: AnimationType;
-    exitTo?: AnimationType;
-    animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
-
-    assetKey?: string;
-    className?: string;
-    classNameImg?: string;
-
-    text?: string;
-    speaker?: string;
-    tailPosition?: "bottom-left" | "bottom-right" | 'left' | 'right';
-    
-    gameTarget?: string;
-};
-
-export type BranchCondition = {
-    game: string;
-    outcome: 'win' | 'lose';
-};
-
-export type Scene = {
-    sceneId: number;
-    duration: number;
-    baseBackground: string;
-    elements: StoryElement[];
-    // For minigame scenes
-    isMinigame?: string;
-    minigameBackground?: string;
-    // For branching narrative scenes
-    branch?: BranchCondition;
-};
-
-
-
-
-
+import type {Scene} from "../types/storyConfig.type.ts";
 
 
 export const storyData: Scene[] = [
@@ -61,11 +12,6 @@ export const storyData: Scene[] = [
                 "id": "s1-bg",
                 "type": "background_element",
                 "assetKey": "houseFamily",
-                "timeline": {
-                    "enter": [0, 0],
-                    "stay": [0, 210],
-                    "exit": [210, 210]
-                },
                 "enterFrom": "none",
                 "exitTo": "fade"
             },
@@ -78,9 +24,8 @@ export const storyData: Scene[] = [
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": [20, 30],
-                    "stay": [30, 90],
-                    "exit": [90, 100]
+                    "enter": 20,
+                    "exit": 100
                 },
                 "enterFrom": "fade",
                 "exitTo": "fade"
@@ -96,9 +41,7 @@ export const storyData: Scene[] = [
                     "right": "0%"
                 },
                 "timeline": {
-                    "enter": [100, 110],
-                    "stay": [110, 150],
-                    "exit": [150, 200]
+                    "enter": 100,
                 },
                 "enterFrom": "right",
                 "exitTo": "none"
@@ -106,12 +49,10 @@ export const storyData: Scene[] = [
             {
                 "id": "s2-title",
                 "type": "title",
-                "text": "Mogambo",
+                "text": "MOGAMBO",
                 "layout": { "top": "10%", "left": "10%" },
                 "timeline": {
-                    "enter": [100, 110],
-                    "stay": [110, 150],
-                    "exit": [150, 200]
+                    "enter": 100,
                 },
                 "enterFrom": "left",
                 "exitTo": "none"
@@ -119,38 +60,35 @@ export const storyData: Scene[] = [
             {
                 "id": "s2-dialogue-1",
                 "type": "title",
-                "speaker": "Mugambo",
-                "text": "this world will be mine.",
+                "speaker": "mogambo",
+                "text": "I WILL CONQUER THE WORLD!",
+                size: "lg",
                 "layout": {
                     "top": "25%",
                     "left": "5%"
                 },
                 "timeline": {
-                    "enter": [120, 130],
-                    "stay": [130, 150],
-                    "exit": [150, 160]
+                    "enter": 120,
+                    "exit": 160
                 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
-                "tailPosition": "bottom-left"
             },
             {
                 "id": "s2-dialogue-2",
                 "type": "title",
                 "speaker": "Mugambo",
                 "text": "No one can stop me!",
+                size: "lg",
                 "layout": {
                     "top": "25%",
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": [160, 170],
-                    "stay": [170, 200],
-                    "exit": [200, 210]
+                    "enter": 160,
                 },
                 "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "bottom-left"
+                "exitTo": "none",
             }
         ]
     },
@@ -163,7 +101,6 @@ export const storyData: Scene[] = [
                 "id": "s3-bg", 
                 "type": "background_element", 
                 "assetKey": "house", 
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
@@ -172,67 +109,148 @@ export const storyData: Scene[] = [
                 "type": "title",
                 "text": "KRAKOOM!",
                 "layout": { "top": "20%", "right": "15%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
+                "timeline": { "enter": 0},
+                "enterFrom": "right",
+                "exitTo": "none",
+            },
+            {
+                "id": "s3-dialogue",
+                "type": "title",
+                size: 'md',
+                "text": "Unfortunate Night! Might Mogambo comes to the hollow",
+                "layout": { "top": "10%", "left": "20%" },
+                "timeline": { "enter": 30 },
                 "enterFrom": "pop",
                 "exitTo": "none",
-                "tailPosition": "right"
             }
         ]
     },
     {
         "sceneId": 4,
-        "duration": 120,
+        "duration": 200,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s4-bg", 
                 "type": "background_element", 
                 "assetKey": "villainAtGate",
-                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 120] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+
+            {
+                "id": "s4-dialogue",
+                "type": "dialogue",
+                "text": "Prophecy!! Some Mere Human will kill me?",
+                "layout": { "top": "5%", "left": "55%" },
+                "timeline": { "enter": 10, "exit": 120 },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "left"
             },
             {
                 "id": "s4-dialogue",
                 "type": "dialogue",
-                "text": "Prophecy!! I must stop it!",
+                "text": "Hahahaha....What a Joke",
                 "layout": { "top": "5%", "left": "55%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 120], "exit": [120, 120] },
+                "timeline": { "enter": 120, },
                 "enterFrom": "pop",
-                "exitTo": "fade",
+                "exitTo": "none",
                 "tailPosition": "left"
-            }
+            },
         ]
     },
     {
         "sceneId": 5,
-        "duration": 120,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             { 
                 "id": "s5-bg", 
                 "type": "background_element", 
                 "assetKey": "houseAttack",
-                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 120] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s5-dialogue2",
+                "type": "dialogue",
+                "text": "What was that sound?",
+                "layout": { "top": "13%", "left": "60%" },
+                "timeline": { "enter": 10, "exit": 100},
+                "enterFrom": "pop",
+                "exitTo": "pop",
+                "tailPosition": "left"
             },
             {
                 "id": "s5-dialogue1",
                 "type": "title",
                 "text": "CREEK!",
                 "layout": { "top": "30%", "right": "5%" },
-                "timeline": { "enter": [1, 10], "stay": [10, 120], "exit": [120, 120] },
-                "enterFrom": "pop",
+                "timeline": { "enter": 100, },
+                "enterFrom": "right",
                 "exitTo": "none",
+            },
+            {
+                "id": "s5-dialogue2",
+                "type": "dialogue",
+                "text": "Someone is at the gate! Is it Mo...",
+                "layout": { "top": "10%", "left": "15%" },
+                "timeline": { "enter": 120, exit: 200 },
+                "enterFrom": "pop",
+                "exitTo": "pop",
                 "tailPosition": "right"
             },
             {
                 "id": "s5-dialogue2",
                 "type": "dialogue",
-                "text": "Someone is at the gate!",
+                "text": "I will go and see, you be here with Ash",
                 "layout": { "top": "10%", "left": "15%" },
-                "timeline": { "enter": [20, 30], "stay": [30, 120], "exit": [120, 120] },
+                "timeline": { "enter": 200 },
+                "enterFrom": "pop",
+                "exitTo": "none",
+                "tailPosition": "right"
+            }
+        ]
+    },
+    {
+        "sceneId": 6,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            { 
+                "id": "s6-bg",
+                "type": "background_element", 
+                "assetKey": "villainFather",
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            { 
+                "id": "s6-dialogue",
+                "type": "dialogue", 
+                "text": "Why have you come here? What do you want from us?",
+                "layout": { "top": "1%", "left": "22%" },
+                "timeline": { "enter":10, exit: 80 },
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s6-dialogue2",
+                "type": "dialogue",
+                "text": "Your Son",
+                "layout": { "top": "8%", "left": "56%" },
+                "timeline": { "enter": 80, exit: 150},
+                "enterFrom": "pop",
+                "exitTo": "fade",
+                "tailPosition": "right"
+            },
+            {
+                "id": "s6-dialogue2",
+                "type": "dialogue",
+                "text": "NO! I will not let you, The prophecy will come true",
+                "layout": { "top": "1%", "left": "22%" },
+                "timeline": { "enter": 150},
                 "enterFrom": "pop",
                 "exitTo": "none",
                 "tailPosition": "right"
@@ -244,56 +262,18 @@ export const storyData: Scene[] = [
         "duration": 150,
         "baseBackground": "none",
         "elements": [
-            { 
-                "id": "s7-bg", 
-                "type": "background_element", 
-                "assetKey": "villainFather",
-                "timeline": { "enter": [0, 0], "stay": [0, 200], "exit": [200, 200] }, 
-                "enterFrom": "none",
-                "exitTo": "none"
-            },
-            { 
-                "id": "s7-dialogue", 
-                "type": "dialogue", 
-                "speaker": "Father", 
-                "text": "I won't let you hurt my family!",
-                "layout": { "top": "1%", "left": "22%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 150], "exit": [150, 150] },
-                "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "bottom-left"
-            },
             {
-                "id": "s7-dialogue2",
-                "type": "dialogue",
-                "speaker": "mogambo",
-                "text": "Try and stop me!",
-                "layout": { "top": "8%", "left": "56%" },
-                "timeline": { "enter": [60, 70], "stay": [70, 150], "exit": [150, 150] },
-                "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "right"
-            }
-        ]
-    },
-    {
-        "sceneId": 6,
-        "duration": 150,
-        "baseBackground": "none",
-        "elements": [
-            {
-                "id": "s6-bg",
+                "id": "s7-bg",
                 "type": "background_element",
                 "assetKey": "villainAttack",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
             {
-                "id": "s5-dialogue",
+                "id": "s7-dialogue",
                 "type": "dialogue",
                 "speaker": "Mugambo",
-                "text": "your magic is no match for me!",
+                "text": "Try ans stop me if you can!",
                 "layout": { "top": "10%", "left": "10%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
@@ -301,7 +281,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "right"
             }, {
 
-                "id": "s5-dialogue2",
+                "id": "s7-dialogue2",
                 "type": "title",
                 "text": "CRIT!!",
                 "layout": { "top": "30%", "right": "8%", "transform": "translateX(50%)" },
@@ -313,24 +293,23 @@ export const storyData: Scene[] = [
         ]
     },
     {
-        "sceneId": 9,
+        "sceneId": 8,
         "duration": 150,
         "baseBackground": "none",
         "elements": [
             { 
-                "id": "s9-bg", 
+                "id": "s8-bg",
                 "type": "background_element", 
                 "assetKey": "fatherDead",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
                 "exitTo": "none"
             },
             {
 
-                "id": "s9-dialogue",
+                "id": "s8-dialogue",
                 "type": "dialogue",
                 "speaker": "Father",
-                "text": "You know the prophecy will come true! you will be defeated by my son!",
+                "text": "The prophecy will come true! He will live.....aah (dead)",
                 "layout": { "top": "23%", "left": "30%" },
                 "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
                 "enterFrom": "pop",
@@ -338,7 +317,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s9-dialogue2",
+                "id": "s8-dialogue2",
                 "type": "dialogue",
                 "speaker": "mogambo",
                 "text": "Only if he lives!",
@@ -351,66 +330,92 @@ export const storyData: Scene[] = [
         ]
     },
     {
-        "sceneId": 8,
+        "sceneId": 9,
         "duration": 150,
         "baseBackground": "none",
         "elements": [
             {
-                "id": "s8-bg",
+                "id": "s9-bg",
                 "type": "background_element",
                 "assetKey": "villainBlast",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
             {
-                "id": "s8-title",
+                "id": "s9-title",
                 "type": "title",
                 "text": "KA-BOOM",
                 "layout": {
                     "top": "10%",
                     "left": "10%"
                 },
-                "timeline": { "enter": [10, 10], "stay": [10, 150], "exit": [150, 150] },
+                "timeline": { "enter": 10 },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            },
+            {
+                "id": "s9-title",
+                "type": "title",
+                "text": "Mogambo dashes towards Ash's Cradle",
+                "layout": {
+                    "bottom": "20%",
+                    "right": "8%"
+                },
+                "timeline": { "enter": 40, },
                 "enterFrom": "pop",
                 "exitTo": "none"
             }
         ]
     },
     {
-        "sceneId": 101,
-        "duration": 150,
+        "sceneId": 10,
+        "duration": 180,
         "baseBackground": "none",
         "elements": [
             { 
-                "id": "s101-bg",
+                "id": "s10-bg",
                 "type": "background_element", 
                 "assetKey": "motherProtect",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
                 "exitTo": "none"
             },
+
             {
-                "id": "s101-dialogue1",
-                "type": "title",
-                "text": "Barrier!",
-                "layout": { "top": "1%", "left": "10%" },
-                "timeline": { "enter": [-20, -10], "stay": [-10, 140], "exit": [140, 150] },
+                "id": "s10-dialogue2",
+                "type": "dialogue",
+                "speaker": "Mother",
+                "text": "I wont let you take my son!",
+                "layout": { "top": "1%", "left": "50%" },
+                "timeline": { "enter": 10, exit: 100 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
                 "tailPosition": "bottom-left"
             },
             {
-                "id": "s101-dialogue2",
-                "type": "dialogue",
-                "speaker": "Mother",
-                "text": "I Will save my child!",
-                "layout": { "top": "1%", "left": "50%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 140], "exit": [140, 150] },
+                "id": "s10-dialogue1",
+                "type": "title",
+                "text": "Protego Totalum!",
+                "layout": { "top": "1%", "left": "55%" },
+                "timeline": { "enter": 100},
                 "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "bottom-left"
-            }
+                "exitTo": "none",
+            },
+            {
+                "id": "s10-dialogue1",
+                "type": "title",
+                "text": "Protective Barrier!",
+                size: 'md',
+                "layout": { "top": "20%", "left": "10%" },
+                "timeline": { "enter": 110 },
+                "enterFrom": "pop",
+                "exitTo": "none",
+            },
+            {
+                "id": "s10-caption",
+                "type": "caption",
+                "text": "Lily Builds a protective barrier around her son",
+                "timeline": { "enter": 110 },
+            },
 
         ]
     },
@@ -423,26 +428,23 @@ export const storyData: Scene[] = [
                 "id": "s11-bg1", 
                 "type": "background_element", 
                 "assetKey": "villainDie",
-                "timeline": { "enter": [0, 0], "stay": [0, 120], "exit": [120, 140] }, 
                 "enterFrom": "none",
                 "exitTo": "fade"
             },
             {
                 "id": "s11-dialogue",
                 "type": "title",
-                "speaker": "Father",
                 "text": "Wahtttt...aaah",
                 "layout": { "top": "40%", "left": "70%" },
-                "timeline": { "enter": [10, 20], "stay": [20, 90], "exit": [90, 100] },
+                "timeline": { "enter": 10, exit: 100 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
-                "tailPosition": "bottom-left"
             },
             { 
                 "id": "s11-bg2", 
                 "type": "background_element", 
                 "assetKey": "villainDie2",
-                "timeline": { "enter": [120, 140], "stay": [140, 250], "exit": [250, 250] }, 
+                "timeline": { "enter": 120 },
                 "enterFrom": "fade",
                 "exitTo": "none"
             },
@@ -450,22 +452,27 @@ export const storyData: Scene[] = [
                 "id": "s11-dialogue2",
                 "type": "title",
                 "text": "Disintegrate!!",
-                "layout": { "top": "8%", "left": "65%" },
-                "timeline": { "enter": [120, 130], "stay": [130, 250], "exit": [250, 250] },
+                "layout": { "top": "8%", "left": "70%" },
+                "timeline": { "enter": 120 },
                 "enterFrom": "pop",
                 "exitTo": "none",
-                "tailPosition": "bottom-left"
+            },
+            {
+                "id": "s11-caption",
+                "type": "caption",
+                "text": "As Mogambo touches the barrier, his body starts to disintegrate and evaporate into thin air",
+                "timeline": { "enter": 120 },
             },
             {
                 "id": "s11-dialogue3",
                 "type": "dialogue",
                 "speaker": "Father",
                 "text": "This is not possible...",
-                "layout": { "top": "40%", "left": "70%" },
-                "timeline": { "enter": [140, 150], "stay": [150, 240], "exit": [240, 250] },
+                "layout": { "top": "10%", "left": "33%" },
+                "timeline": { "enter": 140 },
                 "enterFrom": "pop",
-                "exitTo": "fade",
-                "tailPosition": "bottom-left"
+                exitTo:   "none",
+                "tailPosition": "right"
             }
         ]
     },{
@@ -477,7 +484,6 @@ export const storyData: Scene[] = [
             "id": "s111-bg",
             "type": "background_element",
             "assetKey": "motherCry",
-            "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
             "enterFrom": "none",
             "exitTo": "none"
         },
@@ -485,23 +491,23 @@ export const storyData: Scene[] = [
             "id": "s111-dialogue",
             "type": "dialogue",
             "speaker": "mother",
-            "text": "Whyyy!",
-            "layout": { "top": "1%", "left": "50%" },
-            "timeline": { "enter": [20, 30], "stay": [20, 80], "exit": [80, 100] },
+            "text": "O my son! you have to be brave, you have to be the one who will defeat Mogambo when time comes",
+            "layout": { "top": "1%", "left": "56%" },
+            "timeline": { "enter": 20 },
             "enterFrom": "pop",
-            "exitTo": "fade",
-            "tailPosition": "bottom-left"
+            "exitTo": "none",
+            "tailPosition": "left"
         },
         {
             "id": "s111-dialogue2",
-            "type": "dialogue",
+            "type": "title",
+            size: 'md',
             "speaker": "kid",
             "text": "Zzzzz...",
             "layout": { "top": "40%", "left": "70%" },
-            "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 170] },
+            "timeline": { "enter": 30},
             "enterFrom": "pop",
-            "exitTo": "fade",
-            "tailPosition": "bottom-left"
+            "exitTo": "none",
         }
     ]
 },
@@ -517,6 +523,12 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s111-caption",
+                "type": "caption",
+                "text": "Lily put all her powers trying to save her son, but Mogambo was too powerful. She died trying to protect her son",
+                "timeline": { "enter": 10 },
             }
         ]
     },
@@ -532,6 +544,15 @@ export const storyData: Scene[] = [
                 "assetKey": "babyAlone",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] }, 
                 "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s13-title",
+                "type": "title",
+                "text": "Prophecy will prove itself",
+                "layout": { "top": "10%", "left": "10%" },
+                "timeline": { "enter": 20 },
+                "enterFrom": "fade",
                 "exitTo": "none"
             }
         ]
@@ -549,14 +570,11 @@ export const storyData: Scene[] = [
                 "enterFrom": "none",
                 "exitTo": "none"
             },
-            { 
-                "id": "s14-title", 
-                "type": "title", 
-                "text": "Prophecy will prove itself",
-                "layout": { "top": "10%", "left": "10%" },
-                "timeline": { "enter": [50, 70], "stay": [70, 150], "exit": [150, 150] },
-                "enterFrom": "fade",
-                "exitTo": "none"
+            {
+                "id": "s14-caption",
+                "type": "caption",
+                "text": "Hogwarts Principal Dumbledor found the baby and took him to Hogwarts to be raised in secret",
+                "timeline": { "enter": 10 },
             }
         ]
     },
@@ -582,6 +600,15 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [-60, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "left",
                 "exitTo": "none"
+            },
+            {
+                "id": "s135title",
+                "type": "title",
+                "text": "Hogwarts Express",
+                "layout": { "top": "10%", "left": "30%" },
+                "timeline": { "enter": 20 },
+                "enterFrom": "left",
+                "exitTo": "none"
             }
         ]
     },
@@ -594,7 +621,7 @@ export const storyData: Scene[] = [
                 "id": "s16-bg",
                 "type": "background_element",
                 "assetKey": "hogwarts",
-                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
+                "timeline": {"enter": [0, 0], "stay": [0, 150], "exit": [150, 150]},
                 "enterFrom": "none",
                 "exitTo": "none"
             },
@@ -605,8 +632,8 @@ export const storyData: Scene[] = [
                 "assetKey": "3sitting",
                 animation: "rocking",
 
-                "layout": { height: "300px", "top": "10%", "left": "10%" },
-                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
+                "layout": {height: "300px", "top": "10%", "left": "10%"},
+                "timeline": {"enter": 10,},
                 "enterFrom": "left",
                 "exitTo": "none"
             },
@@ -617,9 +644,19 @@ export const storyData: Scene[] = [
                 "assetKey": "dinner",
                 animation: "scale-up-scale-down",
 
-                "layout": { height: "400px", "bottom": "10%", "right": "10%" },
-                "timeline": { "enter": [0, 10], "stay": [10, 150], "exit": [150, 150] },
+                "layout": {height: "400px", "bottom": "10%", "right": "10%"},
+                "timeline": {"enter": 10},
                 "enterFrom": "right",
+                "exitTo": "none"
+            },
+            {
+                "id": "s16-title",
+                "type": "title",
+                "text": "Young boy, Ash Joins hogwarts With his friends Shub & Tanu",
+                "layout": {"top": "15%", "right": "20%"},
+                size: 'md',
+                "timeline": {"enter": 20},
+                "enterFrom": "fade",
                 "exitTo": "none"
             }
         ]
@@ -643,7 +680,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven1",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(5deg)" },
-                "timeline": { "enter": [0, 10], "stay": [10, 250], "exit": [250, 250] },
+                "timeline": { "enter": 10 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -653,7 +690,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven2",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-5deg)" },
-                "timeline": { "enter": [50, 60], "stay": [60, 250], "exit": [250, 250] },
+                "timeline": { "enter": 50 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -662,7 +699,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven3",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(10deg)" },
-                "timeline": { "enter": [100, 110], "stay": [110, 250], "exit": [250, 250] },
+                "timeline": { "enter": 100 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -672,15 +709,23 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven4",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-10deg)" },
-                "timeline": { "enter": [150, 160], "stay": [160, 250], "exit": [250, 250] },
+                "timeline": { "enter": 150 },
                 "enterFrom": "pop",
                 "exitTo": "none"
+            },
+            {
+                id: "s17-title",
+                type: "title",
+                text: "Ash and his friends Exploring Hogwarts",
+                timeline: { enter: 10 },
+                enterFrom: "top",
+                exitTo: "none"
             }
         ]
     },
     {
         "sceneId": 18,
-        "duration": 150,
+        "duration": 200,
         "baseBackground": "none",
         "elements": [
             {
@@ -690,12 +735,36 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s18-dialogue",
+                type: "dialogue",
+                text: "Shhhh....Just Follow me",
+                layout: { top: "15%", "left": "29%" },
+                timeline: { enter: 10, exit: 100 },
+                enterFrom: "pop",
+                exitTo: "pop",
+                tailPosition: "right"
+            },
+            {
+                id: "s18-dialogue",
+                type: "dialogue",
+                text: "People Say Dungeons are haunted, but I have never seen anything",
+                layout: { top: "8%", "right": "8%" },
+                timeline: { enter: 100, exit: 200 },
+                enterFrom: "pop",
+                exitTo: "pop",
+                tailPosition: "bottom-left"
+            }, {
+                id: "s18-caption",
+                type: "caption",
+                text: "One Night the Trio decides to explore the underground Dungeons of Hogwarts",
             }
         ]
     },
     {
         "sceneId": 19,
-        "duration": 150,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             {
@@ -707,12 +776,41 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
+                id: "s18-dialogue1",
+                type: "dialogue",
+                text: "This was not on the map",
+                layout: { top: "35%", "left": "45%" },
+                timeline: { enter: 10, exit: 100 },
+                enterFrom: "pop",
+                exitTo: "pop",
+                tailPosition: "bottom-left"
+            },
+            {
+                id: "s18-dialogue2",
+                type: "dialogue",
+                text: "Looks like some ancient magic is protecting this place",
+                layout: { top: "30%", "left": "55%" },
+                timeline: { enter: 100, exit: 200 },
+                enterFrom: "pop",
+                exitTo: "pop",
+                tailPosition: "bottom-left"
+            },
+            {
+              id: "s18-title",
+              type: "title",
+                text: "To enter this place, you will have to",
+                layout: { top: "50%", "left": "50%", transform: "translateX(-50%)" },
+                timeline: { enter: 200 },
+                exitTo: "none",
+                enterFrom: "top",
+            },
+            {
                 "id": "s19-button",
                 "type": "button",
                 "text": "PROVE YOUR MEMORY",
                 "gameTarget": "simon",
                 "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
+                "timeline": { "enter": 200 },
                 "enterFrom": "bottom",
                 "exitTo": "none"
             }
@@ -738,7 +836,27 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s20-dialogue2",
+                type: "dialogue",
+                text: "Lets go, There are just books here, nothing else",
+                layout: { top: "10%", "left": "15%" },
+                timeline: { enter: 10, exit: 90 },
+                enterFrom: "fade",
+                exitTo: "pop",
+                tailPosition: "bottom-right"
+            },
+            {
+                id: "s20-dialogue2",
+                type: "dialogue",
+                text: "Wait! this place seems a little strange, I feel some magic here",
+                layout: { top: "50%", "right": "2%" },
+                timeline: { enter: 90 },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "left"
+            },
         ]
     },
     {
@@ -753,12 +871,21 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            }
+            },
+            {
+                id: "s21-title",
+                type: "title",
+                text: "Found Something",
+                layout: { top: "50%", "right": "2%" },
+                timeline: { enter: 10 },
+                enterFrom: "fade",
+                exitTo: "none",
+            },
         ]
     },
     {
         "sceneId": 22,
-        "duration": 150,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             {
@@ -768,12 +895,52 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s22-dialogue1",
+                type: "dialogue",
+                text: "What it is?",
+                layout: { top: "40%", "right": "8%" },
+                timeline: { enter: 10, exit: 100 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "left"
+            },
+            {
+                id: "s22-dialogue2",
+                type: "dialogue",
+                text: "What does it say?",
+                layout: { top: "40%", "left": "10%" },
+                timeline: { enter: 50, exit: 90 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "right"
+            },
+            {
+                id: "s22-dialogue3",
+                type: "dialogue",
+                text: "It says something about prophecy orb",
+                layout: { top: "16%", "left": "45%" },
+                timeline: { enter: 90, exit: 170 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-left"
+            }, {
+                id: "s22-dialogue4",
+                type: "dialogue",
+                text: "\"Prophecy  made by the orb which is protected under the ministry of magic. It cam be free if one decides to walk on the path of the prophecy.\"",
+                layout: { top: "10%", "left": "45%" },
+                timeline: { enter: 170 },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "bottom-left"
             }
+
         ]
     },
     {
         "sceneId": 23,
-        "duration": 150,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             {
@@ -783,6 +950,46 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "s22-dialogue4",
+                type: "dialogue",
+                text: "I might know someone who can help us with this",
+                layout: { top: "20%", "left": "17%" },
+                timeline: { enter: 10, exit: 80 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "right"
+            },
+            {
+                id: "s22-dialogue4",
+                type: "dialogue",
+                text: "Who is it!",
+                layout: { top: "25%", "left": "65%" },
+                timeline: { enter: 80, exit: 150 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "bottom-left"
+            },
+            {
+                id: "s22-dialogue4",
+                type: "dialogue",
+                text: "Draco, that boy in our class, his father works in the ministry.",
+                layout: { top: "20%", "left": "17%" },
+                timeline: { enter: 150, exit: 210 },
+                enterFrom: "fade",
+                exitTo: "fade",
+                tailPosition: "right"
+            },
+            {
+                id: "s22-dialogue4",
+                type: "dialogue",
+                text: "Ok, then lets  use my Invisibility cloak, to sneak into his room, come on guys!",
+                layout: { top: "55%", "right": "27%" },
+                timeline: { enter: 210 },
+                enterFrom: "fade",
+                exitTo: "none",
+                tailPosition: "right"
             }
         ]
     },

@@ -36,7 +36,7 @@ export default function ScrollyScene({
         className="relative w-full" 
         style={{ height: `${duration}vh` }}
       >
-        <div className="absolute top-0 w-full h-[1px] snap-start pointer-events-none" />
+        <div className="absolute top-0 w-full h-[1px] pointer-events-none" />
 
         <div className="sticky top-0 w-full h-screen overflow-hidden z-0">
           <div className={cn("absolute inset-0 w-full h-full", backgroundClass)}>
