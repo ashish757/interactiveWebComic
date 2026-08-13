@@ -20,7 +20,7 @@
   --shadow-comic: 6px 6px 0px 0px rgba(0,0,0,1);
   --shadow-comic-hover: 2px 2px 0px 0px rgba(0,0,0,1);
 
-  --animate-fade-out: fadeOut var(--fade-duration, 8s) ease-out forwards;
+  --animate-fade-out: fadeOut var(--fade-duration, 5s) ease-out forwards;
   --animate-rocking: rocking 2s ease-in-out infinite;
   --animate-scale-up-scale-down: scaleUpDown 2s ease-in-out infinite;
 

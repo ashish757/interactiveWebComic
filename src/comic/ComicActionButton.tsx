@@ -6,7 +6,7 @@ import type { TimelineConfig } from '../types/storyConfig.type';
 interface ComicActionButtonProps {
     id: string;
     layout?: { top?: string; bottom?: string; left?: string; right?: string; transform?: string; width?: string; height?: string };
-    timeline: TimelineConfig;
+    timeline?: TimelineConfig;
     enterFrom?: 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
     exitTo?: 'bottom' | 'top' | 'left' | 'right' | 'fade' | 'pop' | 'none';
     animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';

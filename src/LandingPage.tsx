@@ -23,16 +23,16 @@ export default function LandingPage() {
       <div className="relative z-10 max-w-3xl">
 
 
-        <ComicText variant="title" size="xl" className="mb-6">
+        <ComicText variant="boom" size="xl" className="mb-6 text-amber-500">
           WIZARD
         </ComicText>
 
         <div className="space-y-6 text-left px-6 rounded-lg">
-          <ComicText variant="title" size="lg">
+          <ComicText variant="boom" size="lg" className="text-amber-500 text-justify">
             <strong>Explore</strong> how the world of programming can be a magical adventure! In this interactive comic, 
-            </ComicText>
+          </ComicText>
           
-          <ComicText variant="boom" size="lg">
+          <ComicText variant="boom" size="lg" className="text-justify">
             Where your choices shape the story, and your decision unlock new paths.
           </ComicText>
         </div>
