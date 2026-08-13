@@ -5,6 +5,7 @@ import SpeechBubble from './ui/SpeechBubble';
 import ComicText from './ui/ComicText';
 import ComicActionButton from './comic/ComicActionButton';
 import SnakeGame from './comic/SnakeGame';
+import SimonGame from './comic/SimonGame';
 import { useStore } from './store/useStore';
 import { storyData, type Scene } from './data/storyConfig';
 import { ASSETS, type BackgroundKey, type CharacterKey } from './data/assets';

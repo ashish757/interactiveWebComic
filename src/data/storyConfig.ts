@@ -705,8 +705,26 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "s19-button",
+                "type": "button",
+                "text": "PROVE YOUR MEMORY",
+                "gameTarget": "simon",
+                "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
+                "enterFrom": "bottom",
+                "exitTo": "none"
             }
         ]
+    },
+    {
+        "sceneId": 190,
+        "duration": 100,
+        "baseBackground": "none",
+        "isMinigame": "simon",
+        "minigameBackground": "shelf",
+        "elements": []
     },
     {
         "sceneId": 20,
@@ -735,26 +753,8 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
-            },
-            {
-                "id": "s21-button",
-                "type": "button",
-                "text": "CAST SPELL",
-                "gameTarget": "simon",
-                "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
-                "timeline": { "enter": [50, 60], "stay": [60, 150], "exit": [150, 150] },
-                "enterFrom": "bottom",
-                "exitTo": "none"
             }
         ]
-    },
-    {
-        "sceneId": 210, // inserted scene for Simon Game
-        "duration": 100,
-        "baseBackground": "none",
-        "isMinigame": "simon",
-        "minigameBackground": "shelf",
-        "elements": []
     },
     {
         "sceneId": 22,

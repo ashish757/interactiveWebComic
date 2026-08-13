@@ -56,6 +56,8 @@ export const ASSETS = {
         fight2: "/assets/p2/fight2.jpeg",
         snakebg: "/assets/p2/snakebg.jpeg",
 
+        simonbg: "/assets/p2/simonbg.jpeg",
+
 
 
     },
