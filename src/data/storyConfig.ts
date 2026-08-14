@@ -1432,7 +1432,7 @@ export const storyData: Scene[] = [
             {
                 "id": "s38w-dialogue",
                 "type": "title",
-                "text": "Draco has caputred Shub",
+                "text": "Draco has captured Shub",
                 "layout": { "bottom": "5%", "left": "70%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": 30 },
                 "enterFrom": "fade",
