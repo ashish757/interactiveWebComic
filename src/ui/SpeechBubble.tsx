@@ -29,7 +29,7 @@ export default function SpeechBubble({
 
   return (
     <div className={cn("relative max-w-md", className)}>
-      <div className="relative z-10 bg-white border-4 border-black rounded-2xl p-5 shadow-[var(--shadow-comic)]">
+      <div className="relative z-10 bg-white border-4 border-black rounded-2xl p-3 shadow-(--shadow-comic)">
         {children}
       </div>
       

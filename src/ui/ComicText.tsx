@@ -24,11 +24,11 @@ export default function ComicText({
     size = size || "md"
   }
   const variants = {
-    dialogue: "font-dialogue text-gray-900 leading-snug",
+    dialogue: "font-dialogue text-gray-900 leading-snug font-semibold p-0 ",
     boom: "font-boom text-red-500 uppercase tracking-widest text-shadow-comic",
     caption: "font-mono text-white bg-black px-2 py-1 uppercase tracking-tight",
     title: "bg-white text-black border-4 border-black p-4 font-boom uppercase shadow-[var(--shadow-comic)]",
-  };
+  }
 
   const sizes = {
     sm: "text-sm",

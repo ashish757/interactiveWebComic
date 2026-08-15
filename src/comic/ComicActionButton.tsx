@@ -2,6 +2,7 @@ import ScrollBubble from './ScrollBubble';
 import { useStore } from '../store/useStore';
 import { cn } from '../util/cn';
 import type { TimelineConfig } from '../types/storyConfig.type';
+// import ComicButton from "../ui/ComicButton.tsx";
 
 interface ComicActionButtonProps {
     id: string;
@@ -50,10 +51,14 @@ export default function ComicActionButton({
         >
             <button
                 onClick={handleClick}
-                className="pointer-events-auto bg-red-600 hover:bg-red-500 text-white font-boom text-4xl uppercase px-8 py-4 border-4 border-black shadow-[var(--shadow-comic)] transform transition-transform hover:scale-105 active:scale-95 cursor-pointer"
+                className="bg-burst pointer-events-auto bg-red-600 hover:bg-red-500 text-white font-boom text-4xl uppercase px-8 py-4 border-2 rounded-xl transform transition-transform hover:scale-105 active:scale-95 cursor-pointer"
             >
                 {text}
             </button>
+            {/*<ComicButton onClick={handleClick} className={className} >*/}
+            {/*    {text}*/}
+
+            {/*</ComicButton>*/}
         </ScrollBubble>
     );
 }
