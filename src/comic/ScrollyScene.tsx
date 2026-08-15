@@ -56,7 +56,7 @@ export default function ScrollyScene({
       <SceneContext.Provider value={{ scrollYProgress, duration }}>
         <div
             ref={containerRef}
-            className={`relative w-full ${!isMinigame && " snap-start" }`}
+            className={`relative w-full ${!isMinigame && " " }`}
             style={{ height: `${duration}vh` }}
         >
           <div className="absolute top-0 w-full h-[1px] pointer-events-none" />
