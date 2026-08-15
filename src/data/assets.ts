@@ -100,12 +100,17 @@ export const ASSETS = {
         sad: "/assets/audio/sad.mp3",
         catLaugh: "/assets/audio/catLaugh.mp3",
         correct: "/assets/audio/correct.mp3",
-        game:  "/assets/audio/game.mp3",
-        snakeFood: "/assets/audio/snakeFood.mp3",
-
-        fight: "/assets/audio/fight.mp3",
-        cheer: "/assets/audio/cheer.mp3",
-
+        gameMusic1:  "/assets/audio/game.mp3",
+        gameMusic2:  "/assets/audio/gameMusic.mp3",
+        snakeFood: "/assets/audio/gulp.wav",
+        cheer: "assets/audio/cheer.mp3",
+        boneCrack: "/assets/audio/bone-crack.mp3",
+        avengers: "/assets/audio/avengers.mp3",
+        laser: "/assets/audio/laser.wav",
+        gameOver: "/assets/audio/gameOver.mp3",
+        beeps: "assets/audio/beeps.wav",
+        master1: "/assets/audio/master.mp3",
+        impactMusic: "/assets/audio/impactMusic.wav",
 
     }
 } as const;

@@ -74,6 +74,12 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
+                id: "audio2",
+                type: "audio",
+                assetKey: "impactMusic",
+                timeline: { enter: 120 },
+            },
+            {
                 "id": "s2-dialogue-1",
                 "type": "title",
                 "text": "I WILL CONQUER THE WORLD!",
@@ -206,7 +212,7 @@ export const storyData: Scene[] = [
                 "id": "audio5",
                 "type": "audio",
                 "assetKey": "woodBreak",
-                "timeline": { "enter": 10 }
+                "timeline": { "enter": 0 }
             },
             {
                 "id": "s5-dialogue1",
@@ -296,6 +302,12 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
+                id: "audio7",
+                type: "audio",
+                assetKey: "laser",
+                timeline: { enter: 0 },
+            },
+            {
                 "id": "s7-dialogue",
                 "type": "dialogue",
                 "speaker": "Mugambo",
@@ -335,7 +347,7 @@ export const storyData: Scene[] = [
                 "id": "audio8",
                 "type": "audio",
                 "assetKey": "sad",
-                "timeline": { "enter": 10 }
+                "timeline": { "enter": 0 }
             },
             {
 
@@ -463,6 +475,12 @@ export const storyData: Scene[] = [
                 "assetKey": "villainDie",
                 "enterFrom": "none",
                 "exitTo": "fade"
+            },
+            {
+                "id": "audio11",
+                "type": "audio",
+                "assetKey": "beeps",
+                timeline: { enter: 0 },
             },
             {
                 "id": "s11-dialogue",
@@ -723,7 +741,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven2",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-5deg)" },
-                "timeline": { "enter": 50 },
+                "timeline": { "enter": 70 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -732,7 +750,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven3",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(10deg)" },
-                "timeline": { "enter": 100 },
+                "timeline": { "enter": 120 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -742,7 +760,7 @@ export const storyData: Scene[] = [
                 "type": "character",
                 "assetKey": "3adven4",
                 "layout": { height: "500px", "top": "20%", "left": "20%", transform: "rotate(-10deg)" },
-                "timeline": { "enter": 150 },
+                "timeline": { "enter": 170 },
                 "enterFrom": "pop",
                 "exitTo": "none"
             },
@@ -842,6 +860,7 @@ export const storyData: Scene[] = [
                 "type": "button",
                 "text": "PROVE YOUR MEMORY",
                 "gameTarget": "simon",
+                className: "bg-burst",
                 "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": 200 },
                 "enterFrom": "bottom",
@@ -859,7 +878,7 @@ export const storyData: Scene[] = [
             {
                 id: "s190-audio",
                 type: "audio",
-                assetKey: "game",
+                assetKey: "gameMusic1",
                 timeline: { enter: 0, },
             },
         ]
@@ -1424,7 +1443,7 @@ export const storyData: Scene[] = [
             {
                 id: "s137-audio",
                 type: "audio",
-                assetKey: "game",
+                assetKey: "gameMusic2",
                 timeline: { enter: 0, exit: 100 },
                 exitTo: "fade"
             },
@@ -1443,6 +1462,13 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "audio38",
+                type: "audio",
+                assetKey: "boneCrack",
+                timeline: { enter: 0, exit: 100 },
+                exitTo: "fade"
             },
             {
                 "id": "s38w-title1",
@@ -1488,6 +1514,13 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                id: "audio50",
+                type: "audio",
+                assetKey: "boneCrack",
+                timeline: { enter: 0, exit: 100 },
+                exitTo: "fade"
             },
             {
                 "id": "s50l-dialogue",
@@ -1622,7 +1655,15 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": 100 },
                 "enterFrom": "left",
                 "exitTo": "none"
+            },
+            {
+                id: "audio391",
+                type: "audio",
+                assetKey: "avengers",
+                timeline: { enter: 0, exit: 150 },
+                exitTo: "fade"
             }
+
         ]
     },
     {
