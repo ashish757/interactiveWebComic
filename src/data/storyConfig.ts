@@ -183,7 +183,7 @@ export const storyData: Scene[] = [
                 "type": "dialogue",
                 "text": "What was that sound?",
                 "layout": { "top": "13%", "left": "60%" },
-                "timeline": { "enter": 10, "exit": 100},
+                "timeline": { "enter": 40, "exit": 100},
                 "enterFrom": "pop",
                 "exitTo": "pop",
                 "tailPosition": "left"
@@ -199,7 +199,7 @@ export const storyData: Scene[] = [
                 "type": "title",
                 "text": "CREEK!",
                 "layout": { "top": "30%", "right": "5%" },
-                "timeline": { "enter": 100, },
+                "timeline": { "enter": 0 },
                 "enterFrom": "right",
                 "exitTo": "none",
             },
@@ -1143,18 +1143,30 @@ export const storyData: Scene[] = [
                 "assetKey": "sky",
                 "enterFrom": "none",
                 "exitTo": "none"
-            },{
-                "id": "s2-villain",
+            },
+            // {
+            //     "id": "s2-villain",
+            //     "type": "character",
+            //     "assetKey": "flying",
+            //     "classNameImg": "min-h-screen",
+            //     "layout": {
+            //         "top": "-10%",
+            //     },
+            //     "timeline": {
+            //         enter: [0, 20],
+            //         exit: [20, 120]
+            //     },
+            //     "enterFrom": "right",
+            //     "exitTo": "left"
+            // },
+
+            {
+                "id": "s15-title",
                 "type": "character",
                 "assetKey": "flying",
-                "classNameImg": "min-h-screen",
-                "layout": {
-                    "top": "-10%",
-                },
-                "timeline": {
-                    enter: [-80, 20],
-                    exit: [20, 120]
-                },
+                "classNameImg": "scale-110 rotate-[0deg]",
+                "layout": { "top": "1%", "left": "10%" },
+                "timeline": { "enter": [-60, 0], "stay": [0, 0], "exit": [0, 150] },
                 "enterFrom": "right",
                 "exitTo": "left"
             },
@@ -1419,16 +1431,16 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
-                "id": "s38w-dialogue",
+                "id": "s38w-title1",
                 "type": "title",
                 "text": "YOU DEFEATED THE SNAKE!",
-                "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": 10 },
                 "enterFrom": "fade",
                 "exitTo": "none"
             },
             {
-                "id": "s38w-dialogue",
+                "id": "s38w-title2",
                 "type": "title",
                 "text": "Draco is captured and the prophecy orb is saved",
                 "layout": { "bottom": "5%", "left": "70%", "transform": "translateX(-50%)" },
@@ -1436,17 +1448,27 @@ export const storyData: Scene[] = [
                 "enterFrom": "fade",
                 size:"md",
                 "exitTo": "none"
+            },
+            {
+                "id": "s38w-dialogue",
+                "type": "dialogue",
+                "text": "Draco, Traitor, You made a mistake, now die",
+                "layout": { "top": "5%", "left": "70%" },
+                "timeline": { "enter": 30 },
+                "enterFrom": "fade",
+                "exitTo": "none"
             }
+
         ]
     },
     {
-        "sceneId": 39,
+        "sceneId": 50,
         "duration": 150,
         "baseBackground": "none",
         "branch": { game: "snake", outcome: "lose" },
         "elements": [
             {
-                "id": "s39l-bg",
+                "id": "s50l-bg",
                 "type": "background_element",
                 "assetKey": "chainShub",
                 "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
@@ -1454,7 +1476,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
-                "id": "s39l-dialogue",
+                "id": "s50l-dialogue",
                 "type": "title",
                 "text": "THE SNAKE GOT YOU...",
                 "layout": { "top": "10%", "left": "50%", "transform": "translateX(-50%)" },
@@ -1463,7 +1485,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
-                "id": "s38w-dialogue",
+                "id": "s50w-dialogue",
                 "type": "title",
                 "text": "Draco has captured Shub",
                 "layout": { "bottom": "5%", "left": "70%", "transform": "translateX(-50%)" },
@@ -1471,7 +1493,436 @@ export const storyData: Scene[] = [
                 "enterFrom": "fade",
                 size:"md",
                 "exitTo": "none"
+            },
+            {
+                "id": "s50w-dialogue",
+                "type": "dialogue",
+                "text": "Hahaha, no one survives my snake now die!!",
+                "layout": { "top": "5%", "left": "70%" },
+                "timeline": { "enter": 30 },
+                "enterFrom": "fade",
+                "exitTo": "none"
             }
         ]
-    }
+    },
+    {
+        "sceneId": 39,
+        "duration": 160,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s39w-bg",
+                "type": "background_element",
+                "assetKey": "revive",
+                "enterFrom": "none",
+                "exitTo": "none"
+            },
+            {
+                "id": "s39w-title2",
+                "type": "title",
+                "text": "Mogambo Was Revived!!",
+                "layout": { "top": "5%", "left": "10%", },
+                "timeline": { "enter": 0 },
+                "enterFrom": "left",
+                "exitTo": "none"
+            },
+            {
+                "id": "s39w-dialogue",
+                "type": "dialogue",
+                "text": "Thank you, Ash, for reviving me",
+                "layout": { "top": "5%", "left": "70%" },
+                "timeline": { "enter": 30, exit: 140 },
+                "enterFrom": "fade",
+                "exitTo": "fade"
+            },
+            {
+                "id": "s39w-dialogue",
+                "type": "dialogue",
+                "text": "You look so Eager to die",
+                "layout": { "top": "5%", "left": "70%" },
+                "timeline": { "enter": 140 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+
+        ]
+    },
+    {
+        "sceneId": 391,
+        "duration": 200,
+        "baseBackground": "none",
+        "elements": [
+            {
+                "id": "s391w-bg",
+                "type": "background_element",
+                "assetKey": "birth2",
+                "enterFrom": "none",
+                timeline: {enter: 0, exit: 100},
+                "exitTo": "top"
+            },
+            {
+                id: "s391w-character1",
+                type: "character",
+                assetKey: "ash",
+                "classNameImg": "min-h-[90vh]",
+                layout: { "top": "5%", "left": "5%"},
+                timeline: { "enter": 50 },
+                enterFrom: "left",
+                exitTo: "none"
+            },
+            {
+                id: "s391w-character3",
+                type: "character",
+                assetKey: "shub",
+                "classNameImg": "min-h-[90vh]",
+                layout: { "top": "25%", "left": "0%"},
+                timeline: { "enter": 70 },
+                enterFrom: "left",
+                exitTo: "none"
+            },
+            {
+                id: "s391w-character4",
+                type: "character",
+                assetKey: "tanu",
+                "classNameImg": "min-h-[90vh]",
+                layout: { "top": "25%", "left": "15%"},
+                timeline: { "enter": 90 },
+                enterFrom: "left",
+                exitTo: "none"
+            },
+            {
+                id: "s391w-character2",
+                type: "character",
+                assetKey: "mogamboTrans",
+                "classNameImg": "max-h-[100vh]",
+                layout: { "bottom": "0%", "right": "-15%" },
+                timeline: { "enter": 50 },
+                enterFrom: "right",
+                exitTo: "none"
+            },
+            {
+                "id": "s391w-title2",
+                "type": "title",
+                "text": "VS",
+                "layout": { "top": "40%", "left": "40%", },
+                "timeline": { "enter": 100 },
+                "enterFrom": "left",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 39,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s39w-bg",
+                "type": "background_element",
+                "assetKey": "fight1",
+                enterFrom: "none"
+            },
+            {
+                "id": "s39w-title1",
+                "type": "title",
+                "text": "KRA-KOOM!!",
+                "layout": { "top": "10%", "left": "45%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 10 },
+                "enterFrom": "left",
+                size: 'md',
+                "exitTo": "none"
+            },
+            {
+                "id": "s39w-dialogue",
+                "type": "dialogue",
+                "text": "We will defeat you",
+                "layout": { "top": "20%", "left": "15%" },
+                "timeline": { "enter": 70 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+
+        ]
+    },
+    {
+        "sceneId": 40,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s40w-bg",
+                "type": "background_element",
+                "assetKey": "bottle1",
+                enterFrom: "none"
+            },
+            {
+                "id": "s40w-title1",
+                "type": "title",
+                "text": "SWOOSH!!",
+                "layout": { "top": "10%", "left": "45%" },
+                "timeline": { "enter": 10 },
+                "enterFrom": "left",
+                size: 'md',
+                "exitTo": "none"
+            },
+            {
+                "id": "s40w-dialogue",
+                "type": "dialogue",
+                "text": "What is this Stuff, it is making me feel dizzy",
+                "layout": { "top": "70%", "right": "15%" },
+                tailPosition: "right",
+                "timeline": { "enter": 70 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+
+        ]
+    },
+
+    {
+        "sceneId": 51,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s51l-bg",
+                "type": "background_element",
+                "assetKey": "fight2",
+                enterFrom: "none",
+                exitTo: "none"
+            },
+            {
+                "id": "s51w-title1",
+                "type": "title",
+                "text": "KRA-KOOM!!",
+                "layout": { "top": "10%", "left": "45%", "transform": "translateX(-50%)" },
+                "timeline": { "enter": 10 },
+                "enterFrom": "left",
+                size: 'md',
+                "exitTo": "none"
+            },
+            {
+                "id": "s51w-dialogue",
+                "type": "dialogue",
+                "text": "We will defeat you",
+                "layout": { "top": "20%", "left": "15%" },
+                "timeline": { "enter": 70 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+
+        ]
+    },
+    {
+        "sceneId": 52,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s52l-bg",
+                "type": "background_element",
+                "assetKey": "bottle2",
+                enterFrom: "none",
+                exitTo: "none"
+            },
+            {
+                "id": "s52w-title1",
+                "type": "title",
+                "text": "SWOOSH!!",
+                "layout": { "top": "10%", "left": "45%" },
+                "timeline": { "enter": 10 },
+                "enterFrom": "left",
+                size: 'md',
+                "exitTo": "none"
+            },
+            {
+                "id": "s52w-dialogue",
+                "type": "dialogue",
+                "text": "What is this Stuff, it is making me feel dizzy",
+                "layout": { "top": "70%", "right": "15%" },
+                tailPosition: "right",
+                "timeline": { "enter": 70 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 42,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s42l-bg",
+                "type": "background_element",
+                "assetKey": "threedead",
+                enterFrom: "none",
+                exitTo: 'none'
+            },
+            {
+                "id": "s42l-dialogue",
+                "type": "title",
+                "text": "Mogambo Defeated",
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { enter: 10 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 43,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s43l-bg",
+                "type": "background_element",
+                "assetKey": "twodead",
+                enterFrom: "none",
+                exitTo: 'none'
+
+            },
+            {
+                "id": "s43l-dialogue",
+                "type": "title",
+                "text": "Mogambo Defeated",
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { enter: 10 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 44,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s44l-bg",
+                "type": "background_element",
+                "assetKey": "threeLand",
+                enterFrom: "none",
+                exitTo: 'none'
+
+            },
+            {
+                "id": "s44l-dialogue",
+                "type": "title",
+                "text": "Ash, Shub and Tanu, return to hogwarts",
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { enter: 10 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 45,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s45l-bg",
+                "type": "background_element",
+                "assetKey": "twoLand",
+                enterFrom: "none",
+                exitTo: 'none'
+
+            },
+            {
+                "id": "s45l-dialogue",
+                "type": "title",
+                "text": "Ash and Tanu, return to hogwarts",
+                "layout": { "top": "10%", "left": "20%" },
+                size: "md",
+                "timeline": { enter: 10 },
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 46,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "win" },
+        "elements": [
+            {
+                "id": "s46l-bg",
+                "type": "background_element",
+                "assetKey": "threeCheer",
+                enterFrom: "none",
+                exitTo: 'none'
+
+            },
+            {
+                id: "s46-audio",
+                type: "audio",
+                assetKey: "cheer",
+                timeline: { enter: 0, },
+            },
+            {
+                "id": "s46l-dialogue",
+                "type": "title",
+                "text": "Everyone is cheering for them",
+                "layout": { "top": "10%", "left": "20%" },
+                "timeline": { enter: 10 },
+                "enterFrom": "pop",
+                "exitTo": "none"
+            }
+        ]
+    },
+    {
+        "sceneId": 46,
+        "duration": 150,
+        "baseBackground": "none",
+        "branch": { game: "snake", outcome: "lose" },
+        "elements": [
+            {
+                "id": "s46l-bg",
+                "type": "background_element",
+                "assetKey": "twoCheer",
+                enterFrom: "none",
+                exitTo: 'none'
+
+            },
+            {
+                "id": "s46l-dialogue",
+                "type": "title",
+                "text": "Everyone is cheering for them",
+                "layout": { "top": "10%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { enter: 10, exit: 100 },
+                "enterFrom": "pop",
+                "exitTo": "fade"
+            },
+            {
+               id: "s46-audio",
+                type: "audio",
+                assetKey: "cheer",
+                timeline: { enter: 0, },
+            },
+            {
+                "id": "s46l-dialogue",
+                "type": "title",
+                "text": "Shub's scacrifice is not forgotten, he will be remembered as a hero",
+                "layout": { "top": "15%", "left": "30%", "transform": "translateX(-50%)" },
+                "timeline": { enter: 100 },
+                size: 'md',
+                "enterFrom": "fade",
+                "exitTo": "none"
+            }
+        ]
+    },
+
+
 ]

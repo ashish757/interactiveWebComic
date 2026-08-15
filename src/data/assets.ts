@@ -58,14 +58,20 @@ export const ASSETS = {
 
         simonbg: "/assets/p2/simonbg.jpg",
 
+        mogamboDie: "/assets/p2/mogamboDie.jpeg",
+        revive: "/assets/p2/revive.jpeg",
+        fight1: "/assets/p2/fight1.jpeg",
+        twodead: "/assets/p2/twodead.jpeg",
+        threedead: "/assets/p2/threedead.jpeg",
 
+        threeCheer: "/assets/p2/threeCheer.jpeg",
+        threeLand: "/assets/p2/threeLand.jpeg",
+        twoCheer: "/assets/p2/twoCheer.jpeg",
+        twoLand: "/assets/p2/twoLand.jpeg",
 
     },
     characters: {
-        villain: "/assets/villain.png",
-        father: "/assets/char/father.png",
-        mother: "/assets/char/mother.png",
-        kid: "/assets/char/kid.png",
+        villain: "/assets/char/villain.png",
         step1: "/assets/step1.jpg",
         step2: "/assets/step2.jpg",
         step3: "/assets/step3.jpg",
@@ -79,6 +85,11 @@ export const ASSETS = {
         "3adven3": "assets/p2/3adven3.jpg",
         "3adven4": "assets/p2/3adven4.jpg",
         flying: "assets/p2/flying.png",
+        ash: "assets/char/ash.png",
+        shub: "/assets/char/shub.png",
+        tanu: "/assets/char/tanu.png",
+        mogamboTrans: "/assets/char/mogamboTrans.png",
+
 
     },
     audio: {
