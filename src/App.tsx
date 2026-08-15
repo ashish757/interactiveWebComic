@@ -6,6 +6,7 @@ import ComicText from './ui/ComicText';
 import ComicActionButton from './comic/ComicActionButton';
 import SnakeGame from './comic/SnakeGame';
 import SimonGame from './comic/SimonGame';
+import AudioPlayer from './comic/AudioPlayer';
 import { useStore } from './store/useStore';
 import { storyData } from './data/storyConfig';
 import type {Scene} from './types/storyConfig.type';
@@ -151,9 +152,16 @@ export default function App() {
                             return <CaptionText size={el.size}>{el.text}</CaptionText>
 
 
+                        } else if (el.type === 'audio' && el.assetKey) {
+                            return (
+                                <AudioPlayer
+                                    key={el.id}
+                                    id={el.id}
+                                    assetKey={el.assetKey}
+                                    timeline={el.timeline}
+                                />
+                            );
                         }
-
-
 
                         return null;
                     })}

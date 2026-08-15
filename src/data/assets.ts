@@ -84,6 +84,16 @@ export const ASSETS = {
     audio: {
         click: "/assets/audio/vine-boom.mp3",
         fah: "assets/audio/fah.mp3",
+        thunder: "/assets/audio/thunder.mp3",
+        woodBreak: "/assets/audio/woodBreak.mp3",
+        sad: "/assets/audio/sad.mp3",
+        catLaugh: "/assets/audio/catLaugh.mp3",
+        correct: "/assets/audio/correct.mp3",
+        game:  "/assets/audio/game.mp3",
+        snakeFood: "/assets/audio/snakeFood.mp3",
+
+        fight: "/assets/audio/fight.mp3",
+        cheer: "/assets/audio/cheer.mp3",
 
 
     }

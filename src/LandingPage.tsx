@@ -37,7 +37,7 @@ export default function LandingPage() {
           </ComicText>
         </div>
 
-        <ComicButton onClick={startGame} className="w-full md:w-auto mt-4 cursor-pointer">
+        <ComicButton sound={"fah"} onClick={startGame} className="w-full md:w-auto mt-4 cursor-pointer">
           EXPLORE!
         </ComicButton>
 

@@ -35,6 +35,7 @@ class AudioEngine {
       const audio = this.getAudioInstance(key);
       audio.currentTime = 0;
       audio.volume = volume;
+      audio.loop = l;
       
       const playPromise = audio.play();
       if (playPromise !== undefined) {

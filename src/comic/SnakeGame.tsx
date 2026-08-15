@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { useStore } from '../store/useStore';
 import { ASSETS } from '../data/assets';
+import {audioEngine} from "../util/audioEngine.ts";
+import ComicButton from "../ui/ComicButton.tsx";
 
 const GRID_SIZE = 40;
 const INITIAL_SNAKE = [{ x: 12, y: 12 }];
@@ -30,6 +32,7 @@ export default function SnakeGame({ gameId = 'snake' }: { gameId?: string }) {
         }
         setFood(newFood);
     }, [snake]);
+
 
     const startGame = () => {
         setSnake(INITIAL_SNAKE);
@@ -107,6 +110,7 @@ export default function SnakeGame({ gameId = 'snake' }: { gameId?: string }) {
                 newHead.y >= GRID_SIZE ||
                 snake.some(segment => segment.x === newHead.x && segment.y === newHead.y)
             ) {
+                audioEngine.play("catLaugh");
                 setGameOver(true);
                 return;
             }
@@ -114,6 +118,8 @@ export default function SnakeGame({ gameId = 'snake' }: { gameId?: string }) {
             const newSnake = [newHead, ...snake];
 
             if (newHead.x === food.x && newHead.y === food.y) {
+                audioEngine.play("snakeFood",);
+
                 const newScore = score + 10;
                 setScore(newScore);
                 generateFood(newSnake);
@@ -233,12 +239,10 @@ export default function SnakeGame({ gameId = 'snake' }: { gameId?: string }) {
                         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/20 z-40">
                             <h2 className="text-4xl md:text-6xl text-green-400 font-boom uppercase mb-6 tracking-widest drop-shadow-[0_0_15px_rgba(34,197,94,0.8)] text-center">FIGHT THE SNAKE</h2>
                             <p className="text-white text-base md:text-xl mb-8 font-mono text-center">Use W,A,S,D or Arrow Keys.<br/>Get {WIN_SCORE} points!</p>
-                            <button
-                                onClick={startGame}
-                                className="bg-green-600 hover:bg-green-500 text-white font-boom text-2xl md:text-3xl uppercase px-8 py-4 border-4 border-black/20 shadow-[8px_8px_0px_rgba(0,0,0,1)] transform transition-transform hover:translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] active:translate-y-2"
-                            >
+
+                            <ComicButton onClick={startGame}  >
                                 START BATTLE
-                            </button>
+                            </ComicButton>
                         </div>
                     )}
 

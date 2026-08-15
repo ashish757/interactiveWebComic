@@ -105,6 +105,12 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
+                "id": "scene-1-boom",
+                "type": "audio",
+                "assetKey": "thunder",
+                "timeline": { "enter": 0 }
+            },
+            {
                 "id": "s3-dialogue",
                 "type": "title",
                 "text": "KRAKOOM!",
@@ -181,6 +187,12 @@ export const storyData: Scene[] = [
                 "enterFrom": "pop",
                 "exitTo": "pop",
                 "tailPosition": "left"
+            },
+            {
+                "id": "audio5",
+                "type": "audio",
+                "assetKey": "woodBreak",
+                "timeline": { "enter": 10 }
             },
             {
                 "id": "s5-dialogue1",
@@ -304,6 +316,12 @@ export const storyData: Scene[] = [
                 "assetKey": "fatherDead",
                 "enterFrom": "none",
                 "exitTo": "none"
+            },
+            {
+                "id": "audio8",
+                "type": "audio",
+                "assetKey": "sad",
+                "timeline": { "enter": 10 }
             },
             {
 
@@ -823,7 +841,14 @@ export const storyData: Scene[] = [
         "baseBackground": "none",
         "isMinigame": "simon",
         "minigameBackground": "shelf",
-        "elements": []
+        "elements": [
+            {
+                id: "s190-audio",
+                type: "audio",
+                assetKey: "game",
+                timeline: { enter: 0, },
+            },
+        ]
     },
     {
         "sceneId": 20,
@@ -1369,7 +1394,15 @@ export const storyData: Scene[] = [
         "baseBackground": "none",
         "isMinigame": "snake",
         "minigameBackground": "grass",
-        "elements": []
+        "elements": [
+            {
+                id: "s137-audio",
+                type: "audio",
+                assetKey: "game",
+                timeline: { enter: 0, exit: 100 },
+                exitTo: "fade"
+            },
+        ]
     },
     {
         "sceneId": 38,

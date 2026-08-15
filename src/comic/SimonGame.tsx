@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useStore } from '../store/useStore';
 import { ASSETS } from '../data/assets';
+import { audioEngine } from "../util/audioEngine";
 
 const COLORS = [
     { name: 'Red', hex: '#ef4444', glow: 'rgba(239, 68, 68, 0.8)' },
@@ -52,6 +53,14 @@ export default function SimonGame({ gameId = 'simon' }: { gameId?: string }) {
         setSequence(newSeq);
         playSequence(newSeq);
     };
+
+    useEffect(() => {
+        if(gameOver) audioEngine.play("catLaugh");
+    }, [gameOver]);
+
+    useEffect(() => {
+        if(level >= 1) audioEngine.play("correct");
+    }, [level]);
 
     const nextLevel = () => {
         if (level >= MAX_LEVELS) {
@@ -115,6 +124,7 @@ export default function SimonGame({ gameId = 'simon' }: { gameId?: string }) {
 
         if (newPlayerSeq[currentIndex] !== sequence[currentIndex]) {
             setGameOver(true);
+            setActiveColorIndex(null);
             setIsPlaying(false);
             return;
         }
@@ -181,7 +191,7 @@ export default function SimonGame({ gameId = 'simon' }: { gameId?: string }) {
                                 onClick={startGame}
                                 className="pointer-events-auto  bg-cyan-600 hover:bg-cyan-500 text-white font-boom text-2xl md:text-3xl uppercase px-8 py-4 border-4 border-black/20 shadow-[8px_8px_0px_rgba(0,0,0,1)] transform transition-transform hover:translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,1)] active:translate-y-2 active:shadow-none"
                             >
-                                BEGIN INCANTATION
+                                Prove Your Worth!
                             </button>
                         </div>
                     )}
