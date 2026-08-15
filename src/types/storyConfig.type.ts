@@ -18,6 +18,7 @@ export type StoryElement = {
     animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
     glow?: boolean;
     assetKey?: string;
+    volume?: number;
     className?: string;
     classNameImg?: string;
 

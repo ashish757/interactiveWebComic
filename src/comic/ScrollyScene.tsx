@@ -1,9 +1,8 @@
-import React, { type ReactNode, useRef } from "react";
+import React, { type ReactNode, useRef, useEffect } from "react";
 import { cn } from "../util/cn";
 import { useStore } from '../store/useStore';
-import { useScroll, MotionValue } from 'framer-motion';
-import {audioEngine} from "../util/audioEngine.ts";
-import {useEffect} from "react";
+import { useScroll, MotionValue, useMotionValueEvent } from 'framer-motion';
+import { audioEngine } from "../util/audioEngine.ts";
 
 export interface ScrollySceneProps {
   duration?: number;
@@ -18,52 +17,67 @@ export type SceneContextType = {
 
 export const SceneContext = React.createContext<SceneContextType | null>(null);
 
-export default function ScrollyScene({ 
-  duration = 300, 
-  backgroundClass = "bg-black",
-  children 
-}: ScrollySceneProps) {
+export default function ScrollyScene({
+                                       duration = 300,
+                                       backgroundClass = "bg-black",
+                                       children
+                                     }: ScrollySceneProps) {
   const activeElementId = useStore((state) => state.activeElementId);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const isPlayingRef = useRef(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end end"]
   });
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const isActive = latest > 0 && latest < 1;
+
+    if (isActive && !isPlayingRef.current) {
+      audioEngine.play("master1", true, 0.1, false);
+      isPlayingRef.current = true;
+    } else if (!isActive && isPlayingRef.current) {
+      audioEngine.pause("master1");
+      isPlayingRef.current = false;
+    }
+  });
+
   useEffect(() => {
-    audioEngine.play("master1", true, 0.1 );
+    return () => {
+      audioEngine.pause("master1");
+    };
   }, []);
 
-
   return (
-    <SceneContext.Provider value={{ scrollYProgress, duration }}>
-      <div 
-        ref={containerRef} 
-        className="relative w-full" 
-        style={{ height: `${duration}vh` }}
-      >
-        <div className="absolute top-0 w-full h-[1px] pointer-events-none" />
+      <SceneContext.Provider value={{ scrollYProgress, duration }}>
+        <div
+            ref={containerRef}
+            className="relative w-full snap-start"
+            style={{ height: `${duration}vh` }}
+        >
+          <div className="absolute top-0 w-full h-[1px] pointer-events-none" />
 
-        <div className="sticky top-0 w-full h-screen overflow-hidden z-0">
-          <div className={cn("absolute inset-0 w-full h-full", backgroundClass)}>
-          </div>
+          <div className="sticky top-0 w-full h-screen overflow-hidden z-0">
+            <div className={cn("absolute inset-0 w-full h-full", backgroundClass)}>
+            </div>
 
-          <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
-            {React.Children.map(children, (child, index) => {
-              if (React.isValidElement<{ id: string; className?: string }>(child)) {
-                const id = child.props.id;
-                const isActive = activeElementId === id;
-                return React.cloneElement(child, {
-                  key: index + "-item",
-                  className: cn(child.props.className, isActive ? "z-20" : "z-10"),
-                });
-              }
-              return child;
-            })}
+            <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
+              {React.Children.map(children, (child, index) => {
+                if (React.isValidElement<{ id: string; className?: string }>(child)) {
+                  const id = child.props.id;
+                  const isActive = activeElementId === id;
+                  return React.cloneElement(child, {
+                    key: index + "-item",
+                    className: cn(child.props.className, isActive ? "z-20" : "z-10"),
+                  });
+                }
+                return child;
+              })}
+            </div>
           </div>
         </div>
-      </div>
-    </SceneContext.Provider>
+      </SceneContext.Provider>
   );
 }

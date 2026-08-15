@@ -89,7 +89,7 @@ export const ASSETS = {
         shub: "/assets/char/shub.png",
         tanu: "/assets/char/tanu.png",
         mogamboTrans: "/assets/char/mogamboTrans.png",
-
+        draco: "/assets/char/draco.png",
 
     },
     audio: {

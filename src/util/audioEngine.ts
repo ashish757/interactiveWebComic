@@ -11,7 +11,7 @@ class AudioEngine {
     }
 
     const instances = this.cache.get(key)!;
-    
+
     let freeInstance = instances.find(audio => audio.paused || audio.ended);
 
     if (!freeInstance && instances.length < this.maxInstances) {
@@ -27,24 +27,41 @@ class AudioEngine {
     return freeInstance;
   }
 
-  public play(key: AudioKey, l: boolean = false, volume: number = 0.7) {
+  public play(key: AudioKey, loop: boolean = false, volume: number = 0.7, restart: boolean = true) {
     const isMuted = useStore.getState().isMuted;
     if (isMuted) return;
 
     try {
       const audio = this.getAudioInstance(key);
-      audio.currentTime = 0;
+
+      if (restart) {
+        audio.currentTime = 0;
+      }
+
       audio.volume = volume;
-      audio.loop = l;
-      
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.warn(`Audio playback prevented for ${key}:`, error);
-        });
+      audio.loop = loop;
+
+      if (audio.paused) {
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            console.warn(`Audio playback prevented for ${key}:`, error);
+          });
+        }
       }
     } catch (error) {
       console.error(`Failed to play audio ${key}:`, error);
+    }
+  }
+
+  public pause(key: AudioKey) {
+    const instances = this.cache.get(key);
+    if (instances) {
+      instances.forEach(audio => {
+        if (!audio.paused) {
+          audio.pause();
+        }
+      });
     }
   }
 

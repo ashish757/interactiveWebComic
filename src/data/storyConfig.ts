@@ -347,6 +347,7 @@ export const storyData: Scene[] = [
                 "id": "audio8",
                 "type": "audio",
                 "assetKey": "sad",
+                volume: 0.4,
                 "timeline": { "enter": 0 }
             },
             {
@@ -877,6 +878,7 @@ export const storyData: Scene[] = [
             {
                 id: "s190-audio",
                 type: "audio",
+                volume: 0.5,
                 assetKey: "gameMusic1",
                 timeline: { enter: 0, },
             },
@@ -1030,6 +1032,15 @@ export const storyData: Scene[] = [
                 tailPosition: "bottom-left"
             },
             {
+                id: "s22-cahracter1",
+                type: "character",
+                assetKey: "draco",
+                layout: { top: "20%", "left": "17%" },
+                timeline: { enter: 140, exit: 210 },
+                enterFrom: "left",
+                exitTo: "top",
+            },
+            {
                 id: "s22-dialogue4",
                 type: "dialogue",
                 text: "Draco, that boy in our class, his father works in the ministry.",
@@ -1135,7 +1146,6 @@ export const storyData: Scene[] = [
                 tailPosition: "right"
             }
 
-
         ]
     },
     {
@@ -1173,32 +1183,17 @@ export const storyData: Scene[] = [
                 "id": "s28-bg",
                 "type": "background_element",
                 "assetKey": "sky",
+                "timeline": { "enter": [0, 0], "stay": [0, 150], "exit": [150, 150] },
                 "enterFrom": "none",
                 "exitTo": "none"
             },
-            // {
-            //     "id": "s2-villain",
-            //     "type": "character",
-            //     "assetKey": "flying",
-            //     "classNameImg": "min-h-screen",
-            //     "layout": {
-            //         "top": "-10%",
-            //     },
-            //     "timeline": {
-            //         enter: [0, 20],
-            //         exit: [20, 120]
-            //     },
-            //     "enterFrom": "right",
-            //     "exitTo": "left"
-            // },
-
             {
-                "id": "s15-title",
+                "id": "s28-character",
                 "type": "character",
                 "assetKey": "flying",
                 "classNameImg": "scale-110 rotate-[0deg]",
                 "layout": { "top": "1%", "left": "10%" },
-                "timeline": { "enter": [-60, 0], "stay": [0, 0], "exit": [0, 150] },
+                "timeline": { enter: -60, exit: 100 },
                 "enterFrom": "right",
                 "exitTo": "left"
             },
@@ -1439,13 +1434,13 @@ export const storyData: Scene[] = [
         "isMinigame": "snake",
         "minigameBackground": "grass",
         "elements": [
-            {
-                id: "s137-audio",
-                type: "audio",
-                assetKey: "gameMusic2",
-                timeline: { enter: 0, exit: 100 },
-                exitTo: "fade"
-            },
+            // {
+            //     id: "s137-audio",
+            //     type: "audio",
+            //     assetKey: "gameMusic2",
+            //     timeline: { enter: 0, exit: 100 },
+            //     exitTo: "fade"
+            // },
         ]
     },
     {

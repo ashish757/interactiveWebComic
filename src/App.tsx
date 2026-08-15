@@ -52,8 +52,15 @@ export default function App() {
         }
     }
 
+    const reload = () => {
+        window.location.reload();
+    }
+
     return (
         <div className="bg-black text-white w-full">
+            <div onClick={reload} className="fixed bottom-2.5 right-2.5 px-2 py-1 cursor-pointer pointer-events-auto hover:bg-amber-500 rounded-lg bg-amber-500/40 font-semibold text-white z-100">
+                RESTART
+            </div>
             {visibleScenes.map((scene) => (
                 <ScrollyScene
                     key={scene.sceneId}
@@ -161,6 +168,7 @@ export default function App() {
                                     id={el.id}
                                     assetKey={el.assetKey}
                                     timeline={el.timeline}
+                                    volume={el.volume}
                                 />
                             );
                         }

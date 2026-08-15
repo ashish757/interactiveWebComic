@@ -1,35 +1,23 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useMotionValueEvent } from 'framer-motion';
 import { SceneContext } from './ScrollyScene';
-import { ASSETS, type AudioKey } from '../data/assets';
+import type { AudioKey } from '../data/assets';
 import type { TimelineConfig } from '../types/storyConfig.type';
+import { audioEngine } from '../util/audioEngine';
 
 interface AudioPlayerProps {
     id: string;
     assetKey: string;
     timeline?: TimelineConfig;
+    volume?: number;
 }
 
-export default function AudioPlayer({ assetKey, timeline }: AudioPlayerProps) {
+export default function AudioPlayer({ assetKey, timeline, volume = 0.7 }: AudioPlayerProps) {
     const sceneContext = useContext(SceneContext);
     if (!sceneContext) throw new Error("AudioPlayer must be used within ScrollyScene");
-    
+
     const { scrollYProgress, duration } = sceneContext;
     const [hasPlayed, setHasPlayed] = useState(false);
-    const audioRef = useRef<HTMLAudioElement | null>(null);
-
-    useEffect(() => {
-        const audioSrc = ASSETS.audio[assetKey as AudioKey];
-        if (audioSrc) {
-            audioRef.current = new Audio(audioSrc);
-        }
-        return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current = null;
-            }
-        };
-    }, [assetKey]);
 
     const toProgress = (val: number) => {
         const startStartProgress = 100 / duration;
@@ -42,19 +30,21 @@ export default function AudioPlayer({ assetKey, timeline }: AudioPlayerProps) {
     const enterStart = toProgress(enterVal);
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        if (!audioRef.current) return;
-
         if (latest >= enterStart && !hasPlayed) {
             setHasPlayed(true);
-            audioRef.current.currentTime = 0;
-            audioRef.current.play().catch(e => console.error("Audio play blocked by browser:", e));
-        } 
+            audioEngine.play(assetKey as AudioKey, false, volume, true);
+        }
         else if (latest < enterStart && hasPlayed) {
             setHasPlayed(false);
-            audioRef.current.pause();
-            audioRef.current.currentTime = 0;
+            audioEngine.pause(assetKey as AudioKey);
         }
     });
+
+    useEffect(() => {
+        return () => {
+            audioEngine.pause(assetKey as AudioKey);
+        };
+    }, [assetKey]);
 
     return null;
 }

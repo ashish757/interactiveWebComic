@@ -3,6 +3,9 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        scrollbar-width: none;
+        scroll-snap-type: y mandatory;
+
     }
     * {
         margin: 0;
