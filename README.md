@@ -12,3 +12,25 @@
 
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+![img_2.png](img_2.png)
+
+
+## Tech
+- React
+- Framer Motion
+- Tailwind CSS
+- Google Flow for Assets
+
+
+# Credit
+- mixkit.co & Pixabay for free audio assets
+- Google Flow for  assets Generation
+- Story line inspired  form Harry Potter by J.K. Rowling
+
+## I ended up removing the CSS scrolling snap feature because it was interfering with the framer motion, and I am here to find a solution to this problem, so I just removed it for now
+
+
+View Live At
+https://interactive-web-comic.vercel.app/
+
+made for Hackclub YSWS Program by @jane-does-coding
