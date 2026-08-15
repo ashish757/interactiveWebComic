@@ -61,10 +61,12 @@ export default function App() {
             <div onClick={reload} className="fixed bottom-2.5 right-2.5 px-2 py-1 cursor-pointer pointer-events-auto hover:bg-amber-500 rounded-lg bg-amber-500/40 font-semibold text-white z-100">
                 RESTART
             </div>
-            {visibleScenes.map((scene) => (
+            {visibleScenes.map((scene, index) => (
+
                 <ScrollyScene
                     key={scene.sceneId}
                     duration={scene.duration}
+                    isMinigame={index+1 >= visibleScenes.length ? "" : visibleScenes[index+1].isMinigame}
                     backgroundClass={scene.baseBackground !== 'none' ? `bg-[url('${ASSETS.backgrounds[scene.baseBackground as BackgroundKey]}')] bg-cover bg-center` : scene.minigameBackground ? 'bg-zinc-800' : 'bg-black'}
                 >
                     {scene.isMinigame === 'snake' && (

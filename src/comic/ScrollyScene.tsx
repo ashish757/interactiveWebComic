@@ -8,6 +8,7 @@ export interface ScrollySceneProps {
   duration?: number;
   backgroundClass?: string;
   children: ReactNode;
+  isMinigame?: string;
 }
 
 export type SceneContextType = {
@@ -20,7 +21,8 @@ export const SceneContext = React.createContext<SceneContextType | null>(null);
 export default function ScrollyScene({
                                        duration = 300,
                                        backgroundClass = "bg-black",
-                                       children
+                                       children,
+    isMinigame,
                                      }: ScrollySceneProps) {
   const activeElementId = useStore((state) => state.activeElementId);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -54,7 +56,7 @@ export default function ScrollyScene({
       <SceneContext.Provider value={{ scrollYProgress, duration }}>
         <div
             ref={containerRef}
-            className="relative w-full snap-start"
+            className={`relative w-full ${!isMinigame && " snap-start" }`}
             style={{ height: `${duration}vh` }}
         >
           <div className="absolute top-0 w-full h-[1px] pointer-events-none" />
