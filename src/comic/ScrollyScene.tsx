@@ -43,11 +43,12 @@ export default function ScrollyScene({
           </div>
 
           <div className="absolute top-0 left-0 w-full h-full z-10 pointer-events-none">
-            {React.Children.map(children, (child) => {
+            {React.Children.map(children, (child, index) => {
               if (React.isValidElement<{ id: string; className?: string }>(child)) {
                 const id = child.props.id;
                 const isActive = activeElementId === id;
                 return React.cloneElement(child, {
+                  key: index + "-item",
                   className: cn(child.props.className, isActive ? "z-20" : "z-10"),
                 });
               }

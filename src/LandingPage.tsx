@@ -23,13 +23,13 @@ export default function LandingPage() {
       <div className="relative z-10 max-w-3xl">
 
 
-        <ComicText variant="boom" size="xl" className="mb-6 text-amber-500">
-          WIZARD
+        <ComicText variant="boom" size={"xl"} className="mb-6 text-amber-500">
+          WIZARD and THE PROPHECY
         </ComicText>
 
-        <div className="space-y-6 text-left px-6 rounded-lg">
-          <ComicText variant="boom" size="lg" className="text-amber-500 text-justify">
-            <strong>Explore</strong> how the world of programming can be a magical adventure! In this interactive comic, 
+        <div className="space-y-14 text-left px-6 rounded-lg">
+          <ComicText variant="boom" size="lg" className="text-amber-500 text-center">
+            <strong>Explore</strong> The wizarding world suffering the wrath of a dark mighty wizard vs the boy who lived.
           </ComicText>
           
           <ComicText variant="boom" size="lg" className="text-justify">

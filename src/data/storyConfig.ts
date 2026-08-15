@@ -5,7 +5,7 @@ import type {Scene} from "../types/storyConfig.type.ts";
 export const storyData: Scene[] = [
     {
         "sceneId": 1,
-        "duration": 210,
+        "duration": 250,
         "baseBackground": "none",
         "elements": [
             {
@@ -13,6 +13,22 @@ export const storyData: Scene[] = [
                 "type": "background_element",
                 "assetKey": "houseFamily",
                 "enterFrom": "none",
+                "exitTo": "fade"
+            },
+            {
+                "id": "s1-title1",
+                "type": "title",
+                "text": "A mighty dark wizard Mogambo is on his quest to conquer the whole wizarding world. Upon hearing the prophecy, he knows he might be killed by a boy. Let's unravel the mysteries of the Wizarding world as our choices take this saga through turns.",
+                "layout": {
+                    width: '400px',
+                    "top": "10%",
+                    "left": "10%"
+                },
+                "timeline": {
+                    "enter": 0,
+                    "exit": 70
+                },
+                "enterFrom": "pop",
                 "exitTo": "fade"
             },
             {
@@ -24,8 +40,8 @@ export const storyData: Scene[] = [
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": 20,
-                    "exit": 100
+                    "enter": 70,
+                    "exit": 130
                 },
                 "enterFrom": "fade",
                 "exitTo": "fade"
@@ -41,7 +57,7 @@ export const storyData: Scene[] = [
                     "right": "0%"
                 },
                 "timeline": {
-                    "enter": 100,
+                    "enter": 130,
                 },
                 "enterFrom": "right",
                 "exitTo": "none"
@@ -52,7 +68,7 @@ export const storyData: Scene[] = [
                 "text": "MOGAMBO",
                 "layout": { "top": "10%", "left": "10%" },
                 "timeline": {
-                    "enter": 100,
+                    "enter": 130,
                 },
                 "enterFrom": "left",
                 "exitTo": "none"
@@ -60,7 +76,6 @@ export const storyData: Scene[] = [
             {
                 "id": "s2-dialogue-1",
                 "type": "title",
-                "speaker": "mogambo",
                 "text": "I WILL CONQUER THE WORLD!",
                 size: "lg",
                 "layout": {
@@ -68,8 +83,8 @@ export const storyData: Scene[] = [
                     "left": "5%"
                 },
                 "timeline": {
-                    "enter": 120,
-                    "exit": 160
+                    "enter": 170,
+                    "exit": 230
                 },
                 "enterFrom": "pop",
                 "exitTo": "fade",
@@ -77,7 +92,6 @@ export const storyData: Scene[] = [
             {
                 "id": "s2-dialogue-2",
                 "type": "title",
-                "speaker": "Mugambo",
                 "text": "No one can stop me!",
                 size: "lg",
                 "layout": {
@@ -85,7 +99,7 @@ export const storyData: Scene[] = [
                     "left": "10%"
                 },
                 "timeline": {
-                    "enter": 160,
+                    "enter": 230,
                 },
                 "enterFrom": "pop",
                 "exitTo": "none",
@@ -111,7 +125,7 @@ export const storyData: Scene[] = [
                 "timeline": { "enter": 0 }
             },
             {
-                "id": "s3-dialogue",
+                "id": "s3-dialogue1",
                 "type": "title",
                 "text": "KRAKOOM!",
                 "layout": { "top": "20%", "right": "15%" },
@@ -120,7 +134,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none",
             },
             {
-                "id": "s3-dialogue",
+                "id": "s3-dialogue2",
                 "type": "title",
                 size: 'md',
                 "text": "Unfortunate Night! Might Mogambo comes to the hollow",
@@ -155,7 +169,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "left"
             },
             {
-                "id": "s4-dialogue",
+                "id": "s4-dialogue2",
                 "type": "dialogue",
                 "text": "Hahahaha....What a Joke",
                 "layout": { "top": "5%", "left": "55%" },
@@ -204,7 +218,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none",
             },
             {
-                "id": "s5-dialogue2",
+                "id": "s5-dialogue4",
                 "type": "dialogue",
                 "text": "Someone is at the gate! Is it Mo...",
                 "layout": { "top": "10%", "left": "15%" },
@@ -214,7 +228,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "right"
             },
             {
-                "id": "s5-dialogue2",
+                "id": "s5-dialogue3",
                 "type": "dialogue",
                 "text": "I will go and see, you be here with Ash",
                 "layout": { "top": "10%", "left": "15%" },
@@ -258,7 +272,7 @@ export const storyData: Scene[] = [
                 "tailPosition": "right"
             },
             {
-                "id": "s6-dialogue2",
+                "id": "s6-dialogue3",
                 "type": "dialogue",
                 "text": "NO! I will not let you, The prophecy will come true",
                 "layout": { "top": "1%", "left": "22%" },
@@ -373,7 +387,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none"
             },
             {
-                "id": "s9-title",
+                "id": "s9-title2",
                 "type": "title",
                 "text": "Mogambo dashes towards Ash's Cradle",
                 "layout": {
@@ -420,7 +434,7 @@ export const storyData: Scene[] = [
                 "exitTo": "none",
             },
             {
-                "id": "s10-dialogue1",
+                "id": "s10-dialogue3",
                 "type": "title",
                 "text": "Protective Barrier!",
                 size: 'md',
@@ -766,7 +780,7 @@ export const storyData: Scene[] = [
                 tailPosition: "right"
             },
             {
-                id: "s18-dialogue",
+                id: "s18-dialogue2",
                 type: "dialogue",
                 text: "People Say Dungeons are haunted, but I have never seen anything",
                 layout: { top: "8%", "right": "8%" },

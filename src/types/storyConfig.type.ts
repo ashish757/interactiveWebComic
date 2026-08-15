@@ -16,7 +16,7 @@ export type StoryElement = {
     enterFrom?: AnimationType;
     exitTo?: AnimationType;
     animation?: 'pulse' | 'rocking' | 'scale-up-scale-down' | 'none';
-
+    glow?: boolean;
     assetKey?: string;
     className?: string;
     classNameImg?: string;
