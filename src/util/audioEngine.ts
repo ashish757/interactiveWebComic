@@ -27,7 +27,7 @@ class AudioEngine {
     return freeInstance;
   }
 
-  public play(key: AudioKey, l: boolean = false, volume: number = 1.0) {
+  public play(key: AudioKey, l: boolean = false, volume: number = 0.7) {
     const isMuted = useStore.getState().isMuted;
     if (isMuted) return;
 

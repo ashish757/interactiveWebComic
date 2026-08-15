@@ -2,6 +2,8 @@ import React, { type ReactNode, useRef } from "react";
 import { cn } from "../util/cn";
 import { useStore } from '../store/useStore';
 import { useScroll, MotionValue } from 'framer-motion';
+import {audioEngine} from "../util/audioEngine.ts";
+import {useEffect} from "react";
 
 export interface ScrollySceneProps {
   duration?: number;
@@ -28,6 +30,11 @@ export default function ScrollyScene({
     target: containerRef,
     offset: ["start end", "end end"]
   });
+
+  useEffect(() => {
+    audioEngine.play("master1", true, 0.1 );
+  }, []);
+
 
   return (
     <SceneContext.Provider value={{ scrollYProgress, duration }}>

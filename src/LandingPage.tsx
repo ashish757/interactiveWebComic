@@ -45,7 +45,7 @@ export default function LandingPage() {
 
 
 
-          {modalActive && <div className="absolute space-y-8 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-fit flex-col items-center justify-center bg-amber-900 p-4 shadow-comic text-shadow-comic">
+          {modalActive && <div className="absolute space-y-8 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-fit flex-col items-center justify-center bg-amber-400 rounded-2xl p-8 shadow-comic text-shadow-comic">
 
 
               <ComicText variant="boom" size="lg" className="text-amber-500">
@@ -53,7 +53,7 @@ export default function LandingPage() {
               </ComicText>
 
 
-              <ComicText variant="boom" size="lg" className="text-justify">
+              <ComicText variant="boom" size="lg" className="text-center">
                   Where your choices shape the story, and your decision unlock new paths.
               </ComicText>
 

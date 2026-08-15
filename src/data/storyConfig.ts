@@ -860,7 +860,6 @@ export const storyData: Scene[] = [
                 "type": "button",
                 "text": "PROVE YOUR MEMORY",
                 "gameTarget": "simon",
-                className: "bg-burst",
                 "layout": { "bottom": "15%", "left": "50%", "transform": "translateX(-50%)" },
                 "timeline": { "enter": 200 },
                 "enterFrom": "bottom",

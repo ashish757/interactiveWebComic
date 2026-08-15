@@ -13,17 +13,13 @@ import type {Scene} from './types/storyConfig.type';
 import { ASSETS, type BackgroundKey, type CharacterKey } from './data/assets';
 import DialoguePop from "./comic/DialougePop.tsx";
 import CaptionText from "./ui/CaptionText.tsx";
-import {audioEngine} from "./util/audioEngine.ts";
-import {useEffect} from "react";
+
 
 export default function App() {
     const hasStarted = useStore((state) => state.hasStarted);
     const activeGame = useStore((state) => state.activeGame);
     const gameOutcomes = useStore((state) => state.gameOutcomes);
 
-    useEffect(() => {
-        audioEngine.play("master1", true, 0.4 );
-    }, []);
 
     if (!hasStarted) {
         return <LandingPage />;
