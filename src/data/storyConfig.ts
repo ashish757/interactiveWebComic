@@ -5,7 +5,7 @@ import type {Scene} from "../types/storyConfig.type.ts";
 export const storyData: Scene[] = [
     {
         "sceneId": 1,
-        "duration": 250,
+        "duration": 270,
         "baseBackground": "none",
         "elements": [
             {
@@ -77,7 +77,7 @@ export const storyData: Scene[] = [
                 id: "audio2",
                 type: "audio",
                 assetKey: "impactMusic",
-                timeline: { enter: 120 },
+                timeline: { enter: 120, exit: 270 },
             },
             {
                 "id": "s2-dialogue-1",
@@ -128,7 +128,7 @@ export const storyData: Scene[] = [
                 "id": "scene-1-boom",
                 "type": "audio",
                 "assetKey": "thunder",
-                "timeline": { "enter": 0 }
+                "timeline": { "enter": -90, exit: 150 }
             },
             {
                 "id": "s3-dialogue1",
@@ -212,7 +212,7 @@ export const storyData: Scene[] = [
                 "id": "audio5",
                 "type": "audio",
                 "assetKey": "woodBreak",
-                "timeline": { "enter": 0 }
+                "timeline": { "enter": 0, exit: 250 }
             },
             {
                 "id": "s5-dialogue1",
@@ -305,7 +305,7 @@ export const storyData: Scene[] = [
                 id: "audio7",
                 type: "audio",
                 assetKey: "laser",
-                timeline: { enter: 0 },
+                timeline: { enter: -50, exit: 150 },
             },
             {
                 "id": "s7-dialogue",
@@ -348,7 +348,7 @@ export const storyData: Scene[] = [
                 "type": "audio",
                 "assetKey": "sad",
                 volume: 0.4,
-                "timeline": { "enter": 0 }
+                "timeline": { "enter": 0, exit: 150 }
             },
             {
 
@@ -481,7 +481,7 @@ export const storyData: Scene[] = [
                 "id": "audio11",
                 "type": "audio",
                 "assetKey": "beeps",
-                timeline: { enter: 0 },
+                timeline: { enter: 0, exit: 250 },
             },
             {
                 "id": "s11-dialogue",
@@ -880,7 +880,7 @@ export const storyData: Scene[] = [
                 type: "audio",
                 volume: 0.5,
                 assetKey: "gameMusic1",
-                timeline: { enter: 0, },
+                timeline: { enter: 0, exit: 100 },
             },
         ]
     },
@@ -1434,13 +1434,14 @@ export const storyData: Scene[] = [
         "isMinigame": "snake",
         "minigameBackground": "grass",
         "elements": [
-            // {
-            //     id: "s137-audio",
-            //     type: "audio",
-            //     assetKey: "gameMusic2",
-            //     timeline: { enter: 0, exit: 100 },
-            //     exitTo: "fade"
-            // },
+            {
+                id: "s137-audio",
+                type: "audio",
+                assetKey: "gameMusic2",
+                volume: 0.5,
+                timeline: { enter: 0, exit: 100 },
+                exitTo: "fade"
+            },
         ]
     },
     {
@@ -1513,7 +1514,7 @@ export const storyData: Scene[] = [
                 id: "audio50",
                 type: "audio",
                 assetKey: "boneCrack",
-                timeline: { enter: 0, exit: 100 },
+                timeline: { enter: 0, exit: 150 },
                 exitTo: "fade"
             },
             {
@@ -1654,7 +1655,7 @@ export const storyData: Scene[] = [
                 id: "audio391",
                 type: "audio",
                 assetKey: "avengers",
-                timeline: { enter: 0, exit: 150 },
+                timeline: { enter: 0, exit: 200 },
                 exitTo: "fade"
             }
 
@@ -1918,7 +1919,7 @@ export const storyData: Scene[] = [
                 id: "s46-audio",
                 type: "audio",
                 assetKey: "cheer",
-                timeline: { enter: 0, },
+                timeline: { enter: 0, exit: 150 },
             },
             {
                 "id": "s46l-dialogue",
@@ -1958,7 +1959,7 @@ export const storyData: Scene[] = [
                id: "s46-audio",
                 type: "audio",
                 assetKey: "cheer",
-                timeline: { enter: 0, },
+                timeline: { enter: 0, exit: 150 },
             },
             {
                 "id": "s46l-dialogue",

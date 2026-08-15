@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import { useMotionValueEvent } from 'framer-motion';
 import { SceneContext } from './ScrollyScene';
 import type { AudioKey } from '../data/assets';
@@ -17,7 +17,8 @@ export default function AudioPlayer({ assetKey, timeline, volume = 0.7 }: AudioP
     if (!sceneContext) throw new Error("AudioPlayer must be used within ScrollyScene");
 
     const { scrollYProgress, duration } = sceneContext;
-    const [hasPlayed, setHasPlayed] = useState(false);
+
+    const hasPlayedRef = useRef(false);
 
     const toProgress = (val: number) => {
         const startStartProgress = 100 / duration;
@@ -29,13 +30,19 @@ export default function AudioPlayer({ assetKey, timeline, volume = 0.7 }: AudioP
     const enterVal = typeof timeline?.enter === 'number' ? timeline.enter : (timeline?.enter?.[0] ?? 0);
     const enterStart = toProgress(enterVal);
 
+    const exitVal = typeof timeline?.exit === 'number' ? timeline.exit : (timeline?.exit?.[0] ?? undefined);
+    const exitEnd = exitVal !== undefined ? toProgress(exitVal) : undefined;
+
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        if (latest >= enterStart && !hasPlayed) {
-            setHasPlayed(true);
+        const isPastEnter = latest >= enterStart;
+        const isBeforeExit = exitEnd === undefined || latest < exitEnd;
+        const isInRange = isPastEnter && isBeforeExit;
+
+        if (isInRange && !hasPlayedRef.current) {
+            hasPlayedRef.current = true;
             audioEngine.play(assetKey as AudioKey, false, volume, true);
-        }
-        else if (latest < enterStart && hasPlayed) {
-            setHasPlayed(false);
+        } else if (!isInRange && hasPlayedRef.current) {
+            hasPlayedRef.current = false;
             audioEngine.pause(assetKey as AudioKey);
         }
     });
