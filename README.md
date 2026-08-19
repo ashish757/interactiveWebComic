@@ -86,6 +86,15 @@ https://interactive-web-comic.vercel.app/
 ## `LandingPage.tsx`
 - this component is just a landing page shown before the story start, to show things like title and start buttons
 
+
+## `ScrollyScene.tsx`
+-  this prevents the user from actually scrolling a scene for a set time by vh in config, it simply uses , sticky top-0 h-screen to make the scene sticky for a set time, and then it will scroll to next scene
+
+## `ScrollBubble.tsx` & `Dialogue.tsx`
+- these components are the real brain of the project
+- they take `scrollYProgress` and `duration` from the parent `ScrollyScene` and use that to calculate when an element should be displayed on the screen.
+
+
 # UI Elements
 ## `SpeechBubble.tsx`
 - this component is used to show the dialogues, i pops up dynamically and can be positioned anywhere on the screen
